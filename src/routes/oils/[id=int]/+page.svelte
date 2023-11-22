@@ -1,7 +1,10 @@
 <script>
-    import {page} from "$app/stores";
+	import { page } from '$app/stores';
 
-    $: console.log($page.params.id)
+	export const load = async ({ parent }) => {
+		await parent();
+	};
+
 </script>
 <h1>Oil page</h1>
 

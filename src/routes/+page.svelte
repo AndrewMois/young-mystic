@@ -1,8 +1,10 @@
 <script>
+	export const load = async ({ parent }) => {
+		await parent();
+	};
 
 	export let data;
-	//
-	$:user = data?.authedUser;
+	$: user = data?.authedUser;
 
 </script>
 

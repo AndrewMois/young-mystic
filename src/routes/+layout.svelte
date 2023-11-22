@@ -5,7 +5,7 @@
 
 <nav>
 	<a href='/'>Home</a>
-	<a href='/oils/1'>Oils</a>
+	<a href='/oils'>Oils</a>
 	{#if !user}
 		<a href='/login'>Login</a>
 		<a href='/register'>Register</a>

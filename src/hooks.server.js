@@ -15,6 +15,7 @@ export async function handle({ event, resolve }) {
 			try {
 				const collection = await dbConn();
 				event.locals.authedUser = await findUserByEmail(collection, claims.email);
+
 			} catch (error) {
 				event.locals.authedUser = undefined;
 				console.error(error);

@@ -62,5 +62,6 @@ export const actions = {
 		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '24h' });
 		cookies.set('authToken', authToken, { httpOnly: true, maxAge: 60 * 60 * 24, sameSite: 'strict' });
 		throw redirect(302, '/');
+		//TODO create a function in DB that checks if user is pending or blocked and return a response accordingly
 	},
 };

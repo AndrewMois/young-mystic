@@ -50,7 +50,7 @@ export const findUserByYLID = async (collection, ylid) => {
 };
 
 export const findUserByEmail = async (collection, email) => {
-	const projection = { _id: 0, firstName: 1, name: 1, email: 1, ylid: 1 };
+	const projection = { _id: 0, firstName: 1, name: 1, email: 1, ylid: 1, blocked: 1, pending: 1 };
 
 	try {
 		const users = await collection.find({ email: email }).project(projection).toArray();
