@@ -14,17 +14,15 @@ export async function handle({ event, resolve }) {
 		if (authToken && claims) {
 			try {
 				const collection = await dbConn();
-				const fullUser = await findUserByEmail(collection, claims.email);
-				event.locals.authedUser = fullUser;
+				event.locals.authedUser = await findUserByEmail(collection, claims.email);
 			} catch (error) {
 				event.locals.authedUser = undefined;
 				console.error(error);
 			}
 		}
 	} finally {
-		const response = await resolve(event);
 		// eslint-disable-next-line no-unsafe-finally
-		return response;
+		return await resolve(event);
 	}
 
 }
