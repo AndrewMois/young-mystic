@@ -50,7 +50,7 @@ export const findUserByYLID = async (collection, ylid) => {
 };
 
 export const findUserByEmail = async (collection, email) => {
-	const projection = { _id: 0, firstName: 1, name: 1, email: 1, ylid: 1, blocked: 1, pending: 1 };
+	const projection = { _id: 0, firstName: 1, name: 1, email: 1, ylid: 1 };
 
 	try {
 		const users = await collection.find({ email: email }).project(projection).toArray();
@@ -123,5 +123,55 @@ export const checkPassword = async (collection, email, password) => {
 	} catch (error) {
 		console.error('Error checking password:', error.message);
 		return false;
+	}
+};
+
+/**
+ * @param {Object} collection
+ * @param {String} email
+ * @returns {boolean | null} null if user not found, false if user not blocked, true if user blocked
+ */
+export const checkBlockedbyEmail = async (collection, email) => {
+	const projection = { blocked: 1 };
+
+	try {
+		const users = await collection.find({ email: email }).project(projection).toArray();
+
+		if (users.length === 0) {
+			return null; // User not found
+		} else if (users[0].blocked === false) {
+			return false;
+		} else if (users[0].blocked === true) {
+			return true;
+		}
+
+	} catch (error) {
+		console.error('Error finding if user is blocked by email:', error.message);
+		return null;
+	}
+};
+
+/**
+ * @param {Object} collection
+ * @param {String} email
+ * @returns {boolean | null} null if user not found, false if user not pending, true if user pending
+ */
+export const checkPendingbyEmail = async (collection, email) => {
+	const projection = { pending: 1 };
+
+	try {
+		const users = await collection.find({ email: email }).project(projection).toArray();
+
+		if (users.length === 0) {
+			return null; // User not found
+		} else if (users[0].pending === false) {
+			return false;
+		} else if (users[0].pending === true) {
+			return true;
+		}
+
+	} catch (error) {
+		console.error('Error finding if user is pending by email:', error.message);
+		return null;
 	}
 };

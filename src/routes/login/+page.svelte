@@ -15,14 +15,26 @@
 	</div>
 
 	<div class='form-item'>
+		{#if form?.pending}
+			<p>You are pending! Wait till we approve you</p>
+		{/if}
+	</div>
+
+	<div class='form-item'>
+		{#if form?.blocked}
+			<p>You are blocked!</p>
+		{/if}
+	</div>
+
+	<div class='form-item'>
 		<label for='email'>Email<sup><small>*</small></sup></label>
-		<input class:fieldError={form?.emailUsed} value={form?.email?? ''} id='email' type='email' name='email'
+		<input value={form?.email?? ''} id='email' type='email' name='email'
 					 required />
 	</div>
 
 	<div class='form-item'>
 		<label for='password'>Password<sup><small>*</small></sup></label>
-		<input class:fieldError={form?.weakPassword || form?.passwordDiffer} id='password' type='password'
+		<input id='password' type='password'
 					 name='password' required />
 	</div>
 
@@ -67,7 +79,4 @@
         justify-content: space-between;
     }
 
-    .fieldError {
-        outline: 2px solid #ff0000;
-    }
 </style>
