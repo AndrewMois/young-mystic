@@ -12,7 +12,7 @@ import jwt from 'jsonwebtoken';
 export const actions = {
 	login: async ({ cookies, request }) => {
 		const loginFormData = await request.formData();
-		const email = loginFormData.get('email') ?? '';
+		const email = loginFormData.get('email').toLowerCase().trim() ?? '';
 		const password = loginFormData.get('password') ?? '';
 
 		let LoginResponse = {

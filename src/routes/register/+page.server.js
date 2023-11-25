@@ -6,10 +6,10 @@ import { checkPassword } from '../../passwordCheck.js';
 export const actions = {
 	signup: async ({ request }) => {
 		const signupFormData = await request.formData();
-		const ylid = signupFormData.get('ylid') ?? '';
-		const firstName = signupFormData.get('firstName') ?? '';
-		const lastName = signupFormData.get('lastName') ?? '';
-		const email = signupFormData.get('email') ?? '';
+		const ylid = signupFormData.get('ylid').trim() ?? '';
+		const firstName = signupFormData.get('firstName').trim() ?? '';
+		const lastName = signupFormData.get('lastName').trim() ?? '';
+		const email = signupFormData.get('email').toLowerCase().trim() ?? '';
 		const password = signupFormData.get('password') ?? '';
 		const passwordRepeat = signupFormData.get('passwordRepeat') ?? '';
 
