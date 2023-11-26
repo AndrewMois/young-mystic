@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sanity/client": "^6.8.6",
 		"bcrypt": "^5.1.1",
 		"google-auth-library": "^9.1.0",
 		"jsonwebtoken": "^9.0.2",
