@@ -48,8 +48,8 @@
 
 				<!-- Form Group -->
 				<div>
-					<div class='flex justify-between items-center'>
-						<label for='password' class='block text-sm mb-2 '>Password</label>
+					<div class='flex justify-between items-center mb-2 '>
+						<label for='password' class='block text-sm'>Password</label>
 						<a
 							class='text-sm text-blue-600 decoration-2 hover:underline font-medium '
 							href='../examples/html/recover-account.html'>Forgot password?</a>
