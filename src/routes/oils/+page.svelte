@@ -6,7 +6,10 @@
 	export let data;
 	$: oils = data.oils;
 </script>
-
+<svelte:head>
+	<title>Масла | YM</title>
+	<meta name='description' content='Библиотека эфирных масел Young Living' />
+</svelte:head>
 
 <h1>Oils page</h1>
 <a href='/oils?filter=oil'>Single oils</a>

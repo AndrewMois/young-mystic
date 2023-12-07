@@ -70,7 +70,7 @@ export const actions = {
 			const userPending = await checkPendingbyEmail(collection, email);
 			if (userPending === null) {
 				LoginResponse.error = true;
-				LoginResponse.errorMessage = 'Oups, something went wrong! Try again shortly!';
+				LoginResponse.errorMessage = 'Oops, something went wrong! Try again shortly!';
 				return fail(500, LoginResponse);
 			} else if (userPending === true) {
 				LoginResponse.pending = true;
@@ -85,7 +85,7 @@ export const actions = {
 			const userBlocked = await checkBlockedbyEmail(collection, email);
 			if (userBlocked === null) {
 				LoginResponse.error = true;
-				LoginResponse.errorMessage = 'Oups, something went wrong! Try again shortly!';
+				LoginResponse.errorMessage = 'Oops, something went wrong! Try again shortly!';
 				return fail(500, LoginResponse);
 			} else if (userBlocked === true) {
 				LoginResponse.blocked = true;
