@@ -30,11 +30,11 @@
 	</main>
 </Wrapper>
 
-<footer>
-	<Wrapper>
-		<p>All rights reserved.</p>
-	</Wrapper>
-</footer>
+<!--<footer>-->
+<!--	<Wrapper>-->
+<!--		<p>All rights reserved.</p>-->
+<!--	</Wrapper>-->
+<!--</footer>-->
 
 
 <style lang='postcss'>
