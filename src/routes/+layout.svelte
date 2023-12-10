@@ -24,7 +24,7 @@
 </nav>
 
 
-<Wrapper>
+<Wrapper mobilePadding={false}>
 	<main>
 		<slot />
 	</main>
