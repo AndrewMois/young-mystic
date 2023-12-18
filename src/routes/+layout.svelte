@@ -1,28 +1,14 @@
 <script>
 	import Wrapper from '$components/Wrapper.svelte';
 	import '../app.css';
+	import TopNav from '$components/TopNav.svelte';
 
 	export let data;
 
 	$: user = data?.authedUser;
 </script>
 
-<nav>
-	<Wrapper>
-		<a href='/'>Home</a>
-		<a href='/oils'>Oils</a>
-		{#if !user}
-			<a href='/login'>Login</a>
-			<a href='/register'>Register</a>
-		{/if}
-
-		{#if user }
-			<a href={`/${user.ylid}`}>Your Page</a>
-			<a href='/logout' data-sveltekit-preload-data='off' data-sveltekit-reload>Logout</a>
-		{/if}
-	</Wrapper>
-</nav>
-
+<TopNav />
 
 <Wrapper mobilePadding={false}>
 	<main>
@@ -39,17 +25,29 @@
 
 <style lang='postcss'>
     :global(body) {
-        /*background-color: theme(colors.gray.100);*/
+        background-color: var(--background-colour);
         font-size: 16px; /* Set a base font size for mobile */
+        font-family: 'Montserrat', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', ' Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        line-height: 1.15;
+
+        --background-colour: #f8f2ec;
+
+        & .text-shadow-white {
+            text-shadow: 1px 1px 1px black;
+        }
+
+        & h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', ' Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        }
 
         @media screen and (min-width: 600px) {
             /* Styles for screens larger than 600px (small tablets) */
-            font-size: 18px;
+            font-size: 1.125rem;
         }
 
         @media screen and (min-width: 768px) {
             /* Styles for screens larger than 768px (larger tablets) */
-            font-size: 20px;
+            font-size: 1.2rem;
         }
 
         /* Add more media queries as needed for larger screens */

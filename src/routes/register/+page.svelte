@@ -1,5 +1,6 @@
 <script>
 	import Register from '$components/Auth/Register.svelte';
+	import Wrapper from '$components/Wrapper.svelte';
 
 	export let form;
 </script>
@@ -9,4 +10,6 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<Register {form} />
+<Wrapper>
+	<Register {form} />
+</Wrapper>
