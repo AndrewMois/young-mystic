@@ -18,7 +18,7 @@
 
 <div class='background h-36'>
 	<Wrapper mobilePadding={true} extraClasses='h-24 w-full flex items-center content-center'>
-		<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-white'>Привет, {user?.firstName ?? ''}</p>
+		<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-black'>Привет, {user?.firstName ?? ''}</p>
 	</Wrapper>
 
 

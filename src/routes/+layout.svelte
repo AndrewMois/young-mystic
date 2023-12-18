@@ -32,7 +32,7 @@
 
         --background-colour: #f8f2ec;
 
-        & .text-shadow-white {
+        & .text-shadow-black {
             text-shadow: 1px 1px 1px black;
         }
 
