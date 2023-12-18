@@ -1,5 +1,6 @@
 <script>
 	import Wrapper from '$components/Wrapper.svelte';
+	import SummaryPanel from '$components/SummaryPanel.svelte';
 
 	export const load = async ({ parent }) => {
 		await parent();
@@ -15,12 +16,44 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<Wrapper mobilePadding={true}>
-	<div class='w-full h-36 flex items-center justify-start'>
-		<h1>Привет, {user?.firstName ?? ''}</h1>
-	</div>
-</Wrapper>
+<div class='background h-36'>
+	<Wrapper mobilePadding={true} extraClasses='h-24 w-full flex items-center content-center'>
+		<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-black'>Привет, {user?.firstName ?? ''}</p>
+	</Wrapper>
 
-<div class='w-full h-screen rounded-t-3xl bg-amber-100'>
+
+	<Wrapper mobilePadding={true} extraClasses=''>
+		<SummaryPanel>
+			<div class='flex flex-col items-center justify-center'>
+				<h2 class='text-2xl font-bold'>Добро пожаловать в Young Mystic</h2>
+				<p class='text-xl'>Библиотека эфирных масел Young Living</p>
+			</div>
+		</SummaryPanel>
+		<p>Visit <a href='https://kit.svelte.dev'>kit.svelte.dev</a> to read the documentation</p>
+	</Wrapper>
 </div>
-<p>Visit <a href='https://kit.svelte.dev'>kit.svelte.dev</a> to read the documentation</p>
+
+<style>
+    .background {
+        background-size: cover;
+        background-image: linear-gradient(
+                to bottom, transparent, var(--background-colour)
+        ), url('images/flower-small.jpg');
+    }
+
+    @media (min-width: 600px) {
+        .background {
+            background-image: linear-gradient(
+                    to bottom, transparent, var(--background-colour)
+            ), url('images/flower-medium.jpg');
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .background {
+            background-image: linear-gradient(
+                    to bottom, transparent, var(--background-colour)
+            ), url('images/flower-large.jpg');
+        }
+    }
+</style>

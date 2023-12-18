@@ -1,5 +1,6 @@
 <script>
 	import Login from '$components/Auth/Login.svelte';
+	import Wrapper from '$components/Wrapper.svelte';
 
 	export let form;
 </script>
@@ -8,4 +9,6 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<Login {form} />
+<Wrapper>
+	<Login {form} />
+</Wrapper>
