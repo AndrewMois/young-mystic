@@ -1,6 +1,8 @@
 <script>
 	import Wrapper from '$components/Wrapper.svelte';
 	import SummaryPanel from '$components/SummaryPanel.svelte';
+	import SearchBar from '$components/SearchBar.svelte';
+	import Card from '$components/Card.svelte';
 
 	export const load = async ({ parent }) => {
 		await parent();
@@ -18,15 +20,18 @@
 
 <div class='background h-36'>
 	<Wrapper mobilePadding={true} extraClasses='h-24 w-full flex items-center content-center'>
-		<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-black'>Привет, {user?.firstName ?? ''}</p>
+		<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-white'>Привет, {user?.firstName ?? ''}</p>
 	</Wrapper>
 
 
 	<Wrapper mobilePadding={true} extraClasses=''>
 		<SummaryPanel>
-			<div class='flex flex-col items-center justify-center'>
-				<h2 class='text-2xl font-bold'>Добро пожаловать в Young Mystic</h2>
-				<p class='text-xl'>Библиотека эфирных масел Young Living</p>
+			<div class='flex flex-col items-center justify-center gap-4'>
+				<SearchBar />
+
+				<Card title='Библиотека масел' />
+				<Card title='Бизнес' />
+				<Card title='Контакты' />
 			</div>
 		</SummaryPanel>
 		<p>Visit <a href='https://kit.svelte.dev'>kit.svelte.dev</a> to read the documentation</p>

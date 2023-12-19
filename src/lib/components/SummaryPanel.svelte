@@ -1,3 +1,3 @@
-<section class='w-full h-screen rounded-t-3xl bg-amber-100 px-3 pt-6'>
+<section class='w-full rounded-t-3xl bg-amber-50 border border-accent px-3 pt-6'>
 	<slot />
 </section>
