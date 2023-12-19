@@ -6,7 +6,7 @@
 
 
 <a href={href}
-	 class='flex flex-col items-center border border-accent rounded-xl background-accent shadow md:flex-row'>
+	 class='flex flex-col items-center rounded-xl background-primary shadow-md md:flex-row'>
 	<img class='object-cover w-full rounded-t-xl h-48 md:w-64 md:rounded-none md:rounded-s-xl'
 			 src='https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80'
 			 alt=''>

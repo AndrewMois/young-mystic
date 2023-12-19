@@ -25,6 +25,10 @@
     text-shadow: 1px 1px 1px white;
 }
 
+.background-primary {
+    background-color: var(--background-colour);
+}
+
 .background-accent {
     background-color: var(--accent-colour);
 }
