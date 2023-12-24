@@ -7,9 +7,13 @@ const client = createClient({
 	useCdn: false,
 });
 
-export async function load({ params }) {
+// Accepts params.slug from route. Locals for language
+export async function load({ params, locals }) {
 	let slug = params.slug;
-	const data = await client.fetch(`*[slug.current == "${slug}"]`);
+	const lang = locals.lang ? locals.lang : 'ru';
+
+
+	const data = await client.fetch(`*[slug.current == "${slug}" && language == "${lang}"]`);
 	if (data && data.length > 0) {
 		return {
 			oil: data[0],
