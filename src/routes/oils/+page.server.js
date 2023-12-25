@@ -8,10 +8,12 @@ const client = createClient({
 });
 
 
-export async function load({ url }) {
+export async function load({ url, locals }) {
+	const lang = locals.lang ? locals.lang : 'ru';
 	let filter = url.searchParams.get('filter') ?? 'oil';
+	// possible query params: filter=oil, filter=blend
 
-	const data = await client.fetch(`*[_type == "${filter}"]`);
+	const data = await client.fetch(`*[_type == "${filter}" && language == "${lang}"] | order(nameEn asc)`);
 
 	if (data && data.length > 0) {
 		return {

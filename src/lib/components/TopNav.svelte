@@ -1,7 +1,10 @@
 <nav>
-	<div class='max-w-5xl mx-auto px-3 md:px-6 lg:px-8 xl:px-10 flex justify-center py-3'>
+	<div
+		class='font-cormorant  mx-auto px-3 md:px-6 lg:px-8 xl:px-10 flex justify-center py-3 border-accent border-b-2'>
 		<a href='/'>
-			<h2 class='text-xl md:text-2xl lg:text-3xl xl:text-4xl'>YOUNG MYSTIC</h2>
+			<h2 class='text-2xl md:text-3xl lg:text-3xl xl:text-4xl'>
+				<slot />
+			</h2>
 		</a>
 	</div>
 	<!--		<a href='/'>Home</a>-->

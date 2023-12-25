@@ -8,7 +8,9 @@
 	$: user = data?.authedUser;
 </script>
 
-<TopNav />
+<TopNav>
+	YOUNG MYSTIC
+</TopNav>
 
 <Wrapper mobilePadding={false}>
 	<main>
@@ -31,14 +33,7 @@
         line-height: 1.15;
 
         --background-colour: #f8f2ec;
-
-        & .text-shadow-black {
-            text-shadow: 1px 1px 1px black;
-        }
-
-        & h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', ' Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, sans-serif;
-        }
+        --accent-colour: #c89b55;
 
         @media screen and (min-width: 600px) {
             /* Styles for screens larger than 600px (small tablets) */

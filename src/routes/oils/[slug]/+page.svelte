@@ -11,4 +11,5 @@
 <h1>Oil page</h1>
 
 <h2>{oilData.nameEn}</h2>
+<p>{oilData.description}</p>
 

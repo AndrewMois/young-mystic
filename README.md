@@ -1,22 +1,9 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# Documentation notes
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a
+development server:
 
 ```bash
 npm run dev
@@ -35,4 +22,27 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target
+> environment.
+
+## Internal design notes
+
+### Auth
+
+Initially in login and register server files all the logic is processed. This is checked on in `index.server.js` and
+in `hooks.server.js` on each load. Then, the language is stored in `locals` and can be accessed from any page
+from `data` object.
+
+### Language localization
+
+Initially user will select the language on the first load. It will be added to the cookies and prefilled during
+registration/login process. Then, it will be stored in `locals` and can be accessed from any page from `data` object.
+When the user logins, the language will be updated from the database.
+The user can change the language in the profile settings. It will be updated in the database and in the cookies.
+`hooks.server.js` is responsible for the language localization. There we set `locals` object with `lang` variable. It is
+then fetched in `index.layout.server.js`. Then, it will be available in the `data` object on each page.
+The default language is set in `hooks.server.js` and is `ru`.
+
+
+
+
