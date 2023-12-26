@@ -29,7 +29,7 @@
 			<div class='flex flex-col items-center justify-center gap-4'>
 				<SearchBar />
 
-				<Card title='Библиотека масел' />
+				<Card title='Библиотека масел' href='/oils' />
 				<Card title='Бизнес' />
 				<Card title='Контакты' />
 			</div>
