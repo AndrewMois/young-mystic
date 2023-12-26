@@ -6,8 +6,10 @@ import { findUserByEmail } from './backendUtils.js';
 export async function handle({ event, resolve }) {
 	// Language
 	const lang = event.cookies.get('lang');
-	if (!lang) event.locals.lang = 'ru'; // default language
-	else event.locals.lang = lang;
+	if (!lang) {
+		event.locals.lang = 'ru'; // default language
+		event.cookies.set('lang', 'ru');
+	} else event.locals.lang = lang;
 
 	// Auth
 	const authToken = event.cookies.get('authToken');
