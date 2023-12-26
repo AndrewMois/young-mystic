@@ -43,14 +43,14 @@
         background-size: cover;
         background-image: linear-gradient(
                 to bottom, transparent, var(--background-colour)
-        ), url('static/images/flower-small.webp');
+        ), url('$lib/images/flower-small.webp');
     }
 
     @media (min-width: 600px) {
         .background {
             background-image: linear-gradient(
                     to bottom, transparent, var(--background-colour)
-            ), url('static/images/flower-medium.webp');
+            ), url('$lib/images/flower-small.webp');
         }
     }
 
@@ -58,7 +58,7 @@
         .background {
             background-image: linear-gradient(
                     to bottom, transparent, var(--background-colour)
-            ), url('static/images/flower-large.webp');
+            ), url('$lib/images/flower-small.webp');
         }
     }
 </style>
