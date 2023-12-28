@@ -1,12 +1,13 @@
 /// <reference types="@sveltejs/kit" />
 import { build, files, version } from '$service-worker';
+import { createClient } from '@sanity/client';
 
 // Create a unique cache name for this deployment
 const CACHE = `cache-${version}`;
 
 const ASSETS = [
 	...build, // the app itself
-	...files // everything in `static`
+	...files, // everything in `static`
 ];
 
 self.addEventListener('install', (event) => {
@@ -14,6 +15,17 @@ self.addEventListener('install', (event) => {
 	async function addFilesToCache() {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
+
+		const client = createClient({
+			projectId: 'lttjxemu',
+			dataset: 'production',
+			apiVersion: '2023-11-25',
+			useCdn: false,
+		});
+
+		// Fetch oils database and add it to the cache
+		const oilsData = await client.fetch(`*[_type == "oil" || _type=="blend" && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
+		await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
 	}
 
 	event.waitUntil(addFilesToCache());
@@ -35,7 +47,7 @@ self.addEventListener('fetch', (event) => {
 	if (event.request.method !== 'GET') return;
 
 	event.respondWith(
-		(async function () {
+		(async function() {
 			const cache = await caches.open(CACHE);
 			const cachedResponse = await cache.match(event.request);
 
@@ -47,6 +59,6 @@ self.addEventListener('fetch', (event) => {
 				.catch(() => cachedResponse);
 
 			return cachedResponse || fetchPromise;
-		})()
+		})(),
 	);
 });
