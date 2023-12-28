@@ -24,7 +24,7 @@ self.addEventListener('install', (event) => {
 		});
 
 		// Fetch oils database and add it to the cache
-		const oilsData = await client.fetch(`*[_type == "oil" || _type=="blend" && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
+		const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
 		await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
 	}
 
