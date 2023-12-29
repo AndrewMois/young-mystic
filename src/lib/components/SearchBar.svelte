@@ -14,7 +14,9 @@
 				selectedIndex = -1;
 				return;
 			}
-			suggestions = oilsData.filter(oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()));
+			suggestions = oilsData.filter(
+				oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()) ||
+					oil.nameRu.toLowerCase().includes(search.toLowerCase().trim()));
 			if (!suggestions.length) {
 				suggestions = [{ nameEn: 'none', slug: { current: 'none' } }];
 			}
