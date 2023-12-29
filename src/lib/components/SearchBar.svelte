@@ -1,6 +1,7 @@
 <script>
 	let search = '';
 	let suggestions = [];
+	let selectedIndex = -1;
 
 	async function updateSuggestions() {
 		if (typeof window !== 'undefined' && 'caches' in window) {
@@ -8,9 +9,9 @@
 			const cache = await caches.open(cacheNames[0]);
 			const response = await cache.match('/api/oils');
 			const oilsData = await response.json();
-
 			if (search.length < 3) {
 				suggestions = [];
+				selectedIndex = -1;
 				return;
 			}
 			suggestions = oilsData.filter(oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()));
@@ -19,24 +20,53 @@
 			}
 		}
 	}
+
+	function handleKeydown(event) {
+		if (suggestions.length === 0) return;
+
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			if (selectedIndex < suggestions.length - 1) selectedIndex++;
+		} else if (event.key === 'ArrowUp') {
+			event.preventDefault();
+			if (selectedIndex > -1) selectedIndex--;
+		} else if (event.key === 'Enter') {
+			event.preventDefault();
+			if (selectedIndex > -1 && selectedIndex < suggestions.length) {
+				window.location.href = `/oils/${suggestions[selectedIndex].slug.current}`;
+			}
+		}
+	}
+
+	function handleBlur() {
+		suggestions = [];
+	}
 </script>
 
 <div class='relative w-full'>
-	<label for='hs-trailing-button-add-on-with-icon' class='sr-only'>Search</label>
+	<label for='search' class='sr-only'>Search</label>
 	<div class='flex rounded-lg shadow-md relative'>
-		<input type='text' id='hs-trailing-button-add-on-with-icon' name='hs-trailing-button-add-on-with-icon'
-					 class='py-3 px-4 block w-full bg-white border-amber-50 border rounded-xl shadow-sm rounded-s-lg text-sm focus:border-amber-100 focus:ring-amber-500 disabled:opacity-50 disabled:pointer-events-none placeholder-accent'
-					 placeholder='Поиск' bind:value={search} on:input={updateSuggestions}>
+		<input type='text' id='search' name='search'
+					 class='py-3 px-4 block w-full bg-white border-amber-50 border rounded-xl shadow-sm text-sm focus:border-amber-100 focus:ring-amber-500 disabled:opacity-50 disabled:pointer-events-none placeholder-accent'
+					 class:rounded-b-none={suggestions && suggestions.length > 0}
+					 placeholder='Поиск'
+					 bind:value={search} on:input={updateSuggestions} on:keydown={handleKeydown} on:blur={handleBlur}
+					 on:focus={updateSuggestions}
+					 autocomplete='off'>
 	</div>
-	<ul>
-		{#if suggestions}
-			{#each suggestions as suggestion (suggestion.slug.current)}
-				{#if suggestion.nameEn === 'none'}
-					<li>Ничего не найдено</li>
-				{:else}
-					<li><a href={`/oils/${suggestion.slug.current}`}>{suggestion.nameEn}</a></li>
-				{/if}
+
+	{#if suggestions && suggestions.length > 0}
+		<ul class='absolute bg-white border-b border-y border-gray-200 rounded-b-md shadow-lg w-full'>
+			{#each suggestions as suggestion, index (suggestion.slug.current)}
+				<li>
+					<a href={`/oils/${suggestion.slug.current}`}
+						 class='block px-4 py-2 hover:bg-amber-50 focus:bg-amber-50'
+						 class:background-primary={index === selectedIndex}>
+						{suggestion.nameEn}
+					</a>
+				</li>
 			{/each}
-		{/if}
-	</ul>
+		</ul>
+	{/if}
+
 </div>
