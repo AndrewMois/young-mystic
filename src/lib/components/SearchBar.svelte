@@ -60,16 +60,20 @@
 	{#if suggestions && suggestions.length > 0}
 		<ul class='absolute bg-white border-b border-y border-gray-200 rounded-b-md shadow-lg w-full'>
 			{#each suggestions as suggestion, index (suggestion.slug.current)}
-				<li>
-					<a href={`/oils/${suggestion.slug.current}`}
-						 class='block px-4 py-2  hover:bg-amber-50 focus:bg-amber-50'
-						 class:background-primary={index === selectedIndex}>
-						{suggestion.nameEn}
-						{#if suggestion.nameRu}
-							<span class='text-gray-500 font-bold text-xs ml-0.5'>{suggestion.nameRu}</span>
-						{/if}
-					</a>
-				</li>
+				{#if suggestion.nameEn === 'none'}
+					<li class='block px-4 py-2'>Ничего не найдено</li>
+				{:else}
+					<li>
+						<a href={`/oils/${suggestion.slug.current}`}
+							 class='block px-4 py-2 hover:bg-amber-50 focus:bg-amber-50'
+							 class:background-primary={index === selectedIndex}>
+							{suggestion.nameEn}
+							{#if suggestion.nameRu}
+								<span class='text-gray-500 font-bold text-xs ml-0.5'>{suggestion.nameRu}</span>
+							{/if}
+						</a>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	{/if}
