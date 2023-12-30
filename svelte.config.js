@@ -11,6 +11,9 @@ const config = {
 		alias: {
 			$components: './src/lib/components',
 		},
+		files: {
+			serviceWorker: 'src/sw.js', // or `src/my-sw.ts`
+		},
 	},
 	preprocess: vitePreprocess(),
 };
