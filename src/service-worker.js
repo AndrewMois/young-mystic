@@ -26,6 +26,8 @@ self.addEventListener('install', (event) => {
 		// Fetch oils database and add it to the cache
 		const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
 		await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
+
+		console.log('SW installed'); //TODO: remove
 	}
 
 	event.waitUntil(addFilesToCache());
@@ -40,6 +42,7 @@ self.addEventListener('activate', (event) => {
 	}
 
 	event.waitUntil(deleteOldCaches());
+	console.log('SW activated'); //TODO: remove
 });
 
 self.addEventListener('fetch', (event) => {
@@ -58,6 +61,7 @@ self.addEventListener('fetch', (event) => {
 				})
 				.catch(() => cachedResponse);
 
+			console.log('SW fetched'); //TODO: remove
 			return cachedResponse || fetchPromise;
 		})(),
 	);

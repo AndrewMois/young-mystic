@@ -5,21 +5,26 @@
 
 	async function updateSuggestions() {
 		if (typeof window !== 'undefined' && 'caches' in window) {
-			const cacheNames = await caches.keys();
-			const cache = await caches.open(cacheNames[0]);
-			const response = await cache.match('/api/oils');
-			const oilsData = await response.json();
-			if (search.length < 3) {
-				suggestions = [];
-				selectedIndex = -1;
-				return;
+			try {
+				const cacheNames = await caches.keys();
+				const cache = await caches.open(cacheNames[0]);
+				const response = await cache.match('/api/oils');
+				const oilsData = await response.json();
+				if (search.length < 3) {
+					suggestions = [];
+					selectedIndex = -1;
+					return;
+				}
+				suggestions = oilsData.filter(
+					oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()) ||
+						oil.nameRu.toLowerCase().includes(search.toLowerCase().trim()));
+				if (!suggestions.length) {
+					suggestions = [{ nameEn: 'Ничего не найдено', slug: { current: 'none' } }];
+				}
+			} catch (e) {
+				suggestions = [{ nameEn: 'Упс, произошла ошибка', slug: { current: 'none' } }];
 			}
-			suggestions = oilsData.filter(
-				oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()) ||
-					oil.nameRu.toLowerCase().includes(search.toLowerCase().trim()));
-			if (!suggestions.length) {
-				suggestions = [{ nameEn: 'none', slug: { current: 'none' } }];
-			}
+
 		}
 	}
 
@@ -60,8 +65,8 @@
 	{#if suggestions && suggestions.length > 0}
 		<ul class='absolute bg-white border-b border-y border-gray-200 rounded-b-md shadow-lg w-full'>
 			{#each suggestions as suggestion, index (suggestion.slug.current)}
-				{#if suggestion.nameEn === 'none'}
-					<li class='block px-4 py-2'>Ничего не найдено</li>
+				{#if suggestion.slug.current === 'none'}
+					<li class='block px-4 py-2'>{suggestion.nameEn}</li>
 				{:else}
 					<li>
 						<a href={`/oils/${suggestion.slug.current}`}
