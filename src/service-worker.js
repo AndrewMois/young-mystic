@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 import { build, files, version } from '$service-worker';
-import { createClient } from '@sanity/client';
+// import { createClient } from '@sanity/client';
 
 // Create a unique cache name for this deployment
 const CACHE = `cache-${version}`;
@@ -16,16 +16,16 @@ self.addEventListener('install', (event) => {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 
-		const client = createClient({
-			projectId: 'lttjxemu',
-			dataset: 'production',
-			apiVersion: '2023-11-25',
-			useCdn: false,
-		});
+		// const client = createClient({
+		// 	projectId: 'lttjxemu',
+		// 	dataset: 'production',
+		// 	apiVersion: '2023-11-25',
+		// 	useCdn: false,
+		// });
 
 		// Fetch oils database and add it to the cache
-		const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
-		await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
+		// const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
+		// await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
 
 		console.log('SW installed'); //TODO: remove
 	}
