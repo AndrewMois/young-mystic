@@ -39,7 +39,10 @@ Initially user will select the language on the first load. It will be added to t
 registration/login process. Then, it will be stored in `locals` and can be accessed from any page from `data` object.
 When the user logins, the language will be updated from the database.
 The user can change the language in the profile settings. It will be updated in the database and in the cookies.
-`hooks.server.js` is responsible for the language localization. There we set `locals` object with `lang` variable. It is
+`hooks.server.js` is responsible for the language localization. It checks for a cookie that was initially set during the
+first visit/fetched from db and sets it if it is not present.
+The `lang` value is then available on all server side via `locals` and via cookies on the front end. There we
+set `locals` object with `lang` variable. It is
 then fetched in `index.layout.server.js`. Then, it will be available in the `data` object on each page.
 The default language is set in `hooks.server.js` and is `ru`.
 

@@ -29,7 +29,7 @@
 			<div class='flex flex-col items-center justify-center gap-4'>
 				<SearchBar />
 
-				<Card title='Библиотека масел' />
+				<Card title='Библиотека масел' href='/oils' />
 				<Card title='Бизнес' />
 				<Card title='Контакты' />
 			</div>
@@ -43,14 +43,14 @@
         background-size: cover;
         background-image: linear-gradient(
                 to bottom, transparent, var(--background-colour)
-        ), url('static/images/flower-small.webp');
+        ), url('$lib/images/flower-small.webp');
     }
 
     @media (min-width: 600px) {
         .background {
             background-image: linear-gradient(
                     to bottom, transparent, var(--background-colour)
-            ), url('static/images/flower-medium.webp');
+            ), url('$lib/images/flower-small.webp');
         }
     }
 
@@ -58,7 +58,7 @@
         .background {
             background-image: linear-gradient(
                     to bottom, transparent, var(--background-colour)
-            ), url('static/images/flower-large.webp');
+            ), url('$lib/images/flower-small.webp');
         }
     }
 </style>

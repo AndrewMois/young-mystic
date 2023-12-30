@@ -1,35 +1,81 @@
+<script>
+	let search = '';
+	let suggestions = [];
+	let selectedIndex = -1;
+
+	async function updateSuggestions() {
+		if (typeof window !== 'undefined' && 'caches' in window) {
+			const cacheNames = await caches.keys();
+			const cache = await caches.open(cacheNames[0]);
+			const response = await cache.match('/api/oils');
+			const oilsData = await response.json();
+			if (search.length < 3) {
+				suggestions = [];
+				selectedIndex = -1;
+				return;
+			}
+			suggestions = oilsData.filter(
+				oil => oil.nameEn.toLowerCase().includes(search.toLowerCase().trim()) ||
+					oil.nameRu.toLowerCase().includes(search.toLowerCase().trim()));
+			if (!suggestions.length) {
+				suggestions = [{ nameEn: 'none', slug: { current: 'none' } }];
+			}
+		}
+	}
+
+	function handleKeydown(event) {
+		if (suggestions.length === 0) return;
+
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			if (selectedIndex < suggestions.length - 1) selectedIndex++;
+		} else if (event.key === 'ArrowUp') {
+			event.preventDefault();
+			if (selectedIndex > -1) selectedIndex--;
+		} else if (event.key === 'Enter') {
+			event.preventDefault();
+			if (selectedIndex > -1 && selectedIndex < suggestions.length) {
+				window.location.href = `/oils/${suggestions[selectedIndex].slug.current}`;
+			}
+		}
+	}
+
+	function handleBlur() {
+		suggestions = [];
+	}
+</script>
+
 <div class='relative w-full'>
-	<label for='hs-trailing-button-add-on-with-icon' class='sr-only'>Search</label>
+	<label for='search' class='sr-only'>Search</label>
 	<div class='flex rounded-lg shadow-md relative'>
-		<input type='text' id='hs-trailing-button-add-on-with-icon' name='hs-trailing-button-add-on-with-icon'
-					 class='py-3 px-4 block w-full bg-white border-amber-50 border rounded-xl shadow-sm rounded-s-lg text-sm focus:border-amber-100 focus:ring-amber-500 disabled:opacity-50 disabled:pointer-events-none placeholder-accent'
-					 placeholder='Поиск'>
-		<button type='button'
-						class='absolute right-0 top-1/2 transform -translate-y-1/2 w-[2.25rem] h-[2.25rem] flex-shrink-0 inline-flex justify-center items-center mr-2 text-sm font-semibold rounded-full border border-amber-50 background-accent text-white hover:bg-amber-100 disabled:opacity-50 disabled:pointer-events-none'>
-			<svg class='flex-shrink-0 h-4 w-4' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'
-					 fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
-				<circle cx='11' cy='11' r='8' />
-				<path d='m21 21-4.3-4.3' />
-			</svg>
-		</button>
+		<input type='text' id='search' name='search'
+					 class='py-3 px-4 block w-full bg-white border-amber-50 border rounded-xl shadow-sm text-sm focus:border-amber-100 focus:ring-amber-500 disabled:opacity-50 disabled:pointer-events-none placeholder-accent'
+					 class:rounded-b-none={suggestions && suggestions.length > 0}
+					 placeholder='Поиск'
+					 bind:value={search} on:input={updateSuggestions} on:keydown={handleKeydown} on:blur={handleBlur}
+					 on:focus={updateSuggestions}
+					 autocomplete='off'>
 	</div>
+
+	{#if suggestions && suggestions.length > 0}
+		<ul class='absolute bg-white border-b border-y border-gray-200 rounded-b-md shadow-lg w-full'>
+			{#each suggestions as suggestion, index (suggestion.slug.current)}
+				{#if suggestion.nameEn === 'none'}
+					<li class='block px-4 py-2'>Ничего не найдено</li>
+				{:else}
+					<li>
+						<a href={`/oils/${suggestion.slug.current}`}
+							 class='block px-4 py-2 hover:bg-amber-50 focus:bg-amber-50'
+							 class:background-primary={index === selectedIndex}>
+							{suggestion.nameEn}
+							{#if suggestion.nameRu}
+								<span class='text-gray-500 font-bold text-xs ml-0.5'>{suggestion.nameRu}</span>
+							{/if}
+						</a>
+					</li>
+				{/if}
+			{/each}
+		</ul>
+	{/if}
+
 </div>
-
-
-<!--<div class='w-full'>-->
-<!--	<label for='hs-trailing-button-add-on-with-icon' class='sr-only'>Search</label>-->
-<!--	<div class='flex rounded-lg shadow-sm'>-->
-<!--		<input type='text' id='hs-trailing-button-add-on-with-icon' name='hs-trailing-button-add-on-with-icon'-->
-<!--					 class='py-3 px-4 block w-full background-accent border-accent border rounded-l-xl shadow-sm rounded-s-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none placeholder-amber-50'-->
-<!--					 placeholder='Поиск'>-->
-<!--		<button type='button'-->
-<!--						class='w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-accent rounded-r-xl bg-amber-50 text-accent hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none'>-->
-<!--			<svg class='flex-shrink-0 h-4 w-4' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'-->
-<!--					 fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>-->
-<!--				<circle cx='11' cy='11' r='8' />-->
-<!--				<path d='m21 21-4.3-4.3' />-->
-<!--			</svg>-->
-<!--		</button>-->
-<!--	</div>-->
-<!--</div>-->
-
