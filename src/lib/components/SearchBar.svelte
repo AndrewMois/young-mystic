@@ -2,10 +2,12 @@
 	let search = '';
 	let suggestions = [];
 	let selectedIndex = -1;
+	let hideSuggestions = false;
 
 	async function updateSuggestions() {
 		if (typeof window !== 'undefined' && 'caches' in window) {
 			try {
+				hideSuggestions = false;
 				const cacheNames = await caches.keys();
 				const cache = await caches.open(cacheNames[0]);
 				const response = await cache.match('/api/oils');
@@ -46,7 +48,9 @@
 	}
 
 	function handleBlur() {
-		suggestions = [];
+		setTimeout(() => {
+			hideSuggestions = true;
+		}, 200);
 	}
 </script>
 
@@ -62,7 +66,7 @@
 					 autocomplete='off'>
 	</div>
 
-	{#if suggestions && suggestions.length > 0}
+	{#if !hideSuggestions && suggestions && suggestions.length > 0}
 		<ul class='absolute bg-white border-b border-y border-gray-200 rounded-b-md shadow-lg w-full'>
 			{#each suggestions as suggestion, index (suggestion.slug.current)}
 				{#if suggestion.slug.current === 'none'}
