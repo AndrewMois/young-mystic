@@ -1,8 +1,11 @@
 <script>
 	import Login from '$components/Auth/Login.svelte';
 	import Wrapper from '$components/Wrapper.svelte';
+	import locales from '$lib/locales/login/locales.json';
 
 	export let form;
+	export let data;
+	const lang = data.lang;
 </script>
 <svelte:head>
 	<title>Логин | YM</title>
@@ -10,5 +13,5 @@
 </svelte:head>
 
 <Wrapper>
-	<Login {form} />
+	<Login {form} {locales} {lang} />
 </Wrapper>

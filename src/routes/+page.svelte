@@ -4,13 +4,14 @@
 	import SearchBar from '$components/SearchBar.svelte';
 	import Card from '$components/Card.svelte';
 
+
 	export const load = async ({ parent }) => {
 		await parent();
 	};
 
 	export let data;
 	$: user = data?.authedUser;
-
+	const menuData = data.menu;
 </script>
 
 <svelte:head>
@@ -28,13 +29,14 @@
 		<SummaryPanel>
 			<div class='flex flex-col items-center justify-center gap-4'>
 				<SearchBar />
-
-				<Card title='Библиотека масел' href='/oils' />
-				<Card title='Бизнес' />
-				<Card title='Контакты' />
+				{#each menuData as item}
+					<Card title={item.title} href={item.slug?.current}
+								description={item.description ? item.description : undefined}
+								active={item.active}
+								image={item.image ? item.image : undefined} />
+				{/each}
 			</div>
 		</SummaryPanel>
-		<p>Visit <a href='https://kit.svelte.dev'>kit.svelte.dev</a> to read the documentation</p>
 	</Wrapper>
 </div>
 
