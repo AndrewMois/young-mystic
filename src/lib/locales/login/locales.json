@@ -53,5 +53,25 @@
     "en": "Please, reach out to us to unblock your account",
     "ru": "Пожалуйста, свяжитесь с нами, чтобы разблокировать ваш аккаунт",
     "ua": "Будь ласка, зв'яжіться з нами, щоб розблокувати ваш аккаунт"
+  },
+  "errorEmptyFields": {
+    "en": "Make sure you fill out all fields!",
+    "ru": "Пожалуйста, заполните все поля!",
+    "ua": "Будь ласка, заповніть всі поля!"
+  },
+  "errorInvalidCredentials": {
+    "en": "Invalid email address or password",
+    "ru": "Неверный адрес электронной почты или пароль",
+    "ua": "Невірна адреса електронної пошти або пароль"
+  },
+  "errorCannotCheck": {
+    "en": "Error checking credentials! Try again shortly",
+    "ru": "Ошибка проверки учетных данных! Попробуйте еще раз",
+    "ua": "Помилка перевірки облікових даних! Спробуйте ще раз"
+  },
+  "errorTryAgain": {
+    "en": "Oops, something went wrong! Try again shortly",
+    "ru": "Упс, что-то пошло не так! Попробуйте еще раз",
+    "ua": "Упс, щось пішло не так! Спробуйте ще раз"
   }
 }
