@@ -15,9 +15,7 @@
 
 <TopBackground>
 	<Wrapper>
-		<!--		<SummaryPanel>-->
 		<Login {form} {locales} {lang} />
-		<!--		</SummaryPanel>-->
 	</Wrapper>
 </TopBackground>
 

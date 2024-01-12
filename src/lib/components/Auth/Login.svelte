@@ -44,7 +44,7 @@
 					</label>
 					<div class='relative'>
 						<input type='email' id='email' name='email'
-									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none '
+									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required aria-describedby='email-error'
 									 value={form?.email?? ''}>
 					</div>
@@ -61,16 +61,16 @@
 					</div>
 					<div class='relative'>
 						<input type='password' id='password' name='password'
-									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none '
+									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required aria-describedby='password-error'>
 					</div>
 				</div>
 				<!-- End Form Group -->
-				<input type="hidden" name="lang" value={lang}>
+				<input type='hidden' name='lang' value={lang}>
 				<!-- End Language Hidden -->
 
 				<button type='submit'
-								class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent background-accent text-black disabled:opacity-50 disabled:pointer-events-none '>
+								class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent background-accent text-black disabled:opacity-50 disabled:pointer-events-none'>
 					{locales.signInButton[lang]}
 				</button>
 			</div>

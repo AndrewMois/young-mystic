@@ -4,16 +4,17 @@
 	export let form;
 	export let locales;
 	export let lang;
+	//TODO: add password requirements!!!
 </script>
 
-<div class='mt-7 bg-white border border-gray-200 rounded-xl shadow-sm max-w-md mx-auto'>
+<div class='text-black mt-7 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
 	<div class='p-4 sm:p-7'>
 		<div class='text-center mb-4'>
-			<h1 class='block text-2xl font-bold text-gray-800 '>{locales.register[lang]}</h1>
-			<p class='mt-2 text-sm text-gray-600 '>
+			<h1 class='block text-2xl font-bold'>{locales.register[lang]}</h1>
+			<p class='mt-2 text-sm'>
 				{locales.alreadyHaveAcc[lang]}
 				<a
-					class='text-blue-600 decoration-2 hover:underline font-medium '
+					class='border-b border-accent decoration-2 hover:underline font-medium hover:border-b-2'
 					href='/login'>
 					{locales.signInHere[lang]}
 				</a>
@@ -34,7 +35,7 @@
 					</label>
 					<div class='relative'>
 						<input type='text' id='firstName' name='firstName'
-									 class='py-3 px-4 block w-full border-gray-200 rounded-lg text-sm border-2 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none '
+									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required
 									 value={form?.firstName?? ''}>
 					</div>
@@ -48,7 +49,7 @@
 					</label>
 					<div class='relative'>
 						<input type='text' id='lastName' name='lastName'
-									 class='py-3 px-4 block w-full border-gray-200 rounded-lg text-sm border-2 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none '
+									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required
 									 value={form?.lastName?? ''}>
 					</div>
@@ -62,7 +63,7 @@
 					</label>
 					<div class='relative'>
 						<input type='email' id='email' name='email' value={form?.email?? ''}
-									 class={`py-3 px-4 block w-full border-gray-200 rounded-lg border-2 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ${form?.emailUsed ? 'border-red-500' : ''}`}
+									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.emailUsed ? 'border-red-500' : ''}`}
 									 required>
 						<div
 							class={form?.emailUsed ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
@@ -85,7 +86,7 @@
 					</div>
 					<div class='relative'>
 						<input type='password' id='password' name='password'
-									 class={`py-3 px-4 block w-full border-gray-200 rounded-lg border-2 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ${form?.weakPassword || form?.passwordDiffer ? 'border-red-500' : ''}`}
+									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.weakPassword || form?.passwordDiffer ? 'border-red-500' : ''}`}
 									 required>
 						<div
 							class={form?.weakPassword || form?.passwordDiffer ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
@@ -108,7 +109,7 @@
 					</div>
 					<div class='relative'>
 						<input type='password' id='passwordRepeat' name='passwordRepeat'
-									 class={`py-3 px-4 block w-full border-gray-200 rounded-lg border-2 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ${form?.passwordDiffer ? 'border-red-500' : ''}`}
+									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.passwordDiffer ? 'border-red-500' : ''}`}
 									 required>
 						<div
 							class={form?.passwordDiffer ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
@@ -131,7 +132,7 @@
 					</div>
 					<div class='relative'>
 						<input type='text' id='ylid' name='ylid'
-									 class={`py-3 px-4 block w-full border-gray-200 rounded-lg border-2 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ${form?.idTaken ? 'border-red-500' : ''}`}
+									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.idTaken ? 'border-red-500' : ''}`}
 									 value={form?.ylid?? ''}
 									 required>
 						<div
@@ -149,7 +150,7 @@
 				<!-- End Language Hidden -->
 
 				<button type='submit'
-								class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none '>
+								class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent background-accent text-black disabled:opacity-50 disabled:pointer-events-none'>
 					{locales.register[lang]}
 				</button>
 			</div>
@@ -158,13 +159,12 @@
 		<div class='mt-4 text-center'>
 			<p class='text-sm text-gray-600 '>
 				{locales.problemWithRegistration[lang]}
-				<a
-					class='text-blue-600 decoration-2 hover:underline font-medium '
-					href='/contact'>
-					{locales.contactUs[lang]}
-				</a>
 			</p>
+			<a
+				class='border-b border-accent decoration-2 hover:underline font-medium text-sm hover:border-b-2'
+				href='/contact'>
+				{locales.contactUs[lang]}
+			</a>
 		</div>
 	</div>
 </div>
-
