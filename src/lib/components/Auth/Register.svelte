@@ -21,7 +21,7 @@
 		</div>
 
 		{#if form?.errorMessages}
-			<Alert type='error' title='Oops, there are some errors:' message={form.errorMessages} />
+			<Alert type='error' title={locales.errorTitle[lang]} message={form.errorMessages} />
 		{/if}
 
 		<!-- Form -->

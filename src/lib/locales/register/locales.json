@@ -26,8 +26,8 @@
   },
   "email": {
     "en": "Email",
-    "ru": "Почта",
-    "ua": "Пошта"
+    "ru": "Электронная почта",
+    "ua": "Електронна пошта"
   },
   "password": {
     "en": "Password",
@@ -53,6 +53,11 @@
     "en": "Contact us",
     "ru": "Свяжитесь с нами",
     "ua": "Зв'яжіться з нами"
+  },
+  "errorTitle": {
+    "en": "Oops, there are some errors:",
+    "ru": "Упс, возникли ошибки:",
+    "ua": "Упс, виникли помилки:"
   },
   "fillAllFields": {
     "en": "Please fill all fields",
