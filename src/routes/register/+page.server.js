@@ -2,6 +2,7 @@ import { dbConn } from '../../dbConn';
 import { fail, redirect } from '@sveltejs/kit';
 import { createUserToRegister, registerUser, returnEmailsList, returnYLIDsList } from '../../backendUtils.js';
 import { checkPassword } from '../../passwordCheck.js';
+import locales from '$lib/locales/register/locales.json';
 
 export const actions = {
 	signup: async ({ request }) => {
@@ -12,6 +13,7 @@ export const actions = {
 		const email = signupFormData.get('email').toLowerCase().trim() ?? '';
 		const password = signupFormData.get('password') ?? '';
 		const passwordRepeat = signupFormData.get('passwordRepeat') ?? '';
+		const lang = signupFormData.get('lang') ?? 'ru'; // default language
 
 		let SignUpResponse = {
 			emailUsed: false,
@@ -32,7 +34,7 @@ export const actions = {
 
 		if ((firstName === '') || (lastName === '') || (email === '') || (ylid === '') || (password === '') || (passwordRepeat === '')) {
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push('Make sure you fill out all fields!');
+			SignUpResponse.errorMessages.push(locales.fillAllFields[lang]);
 			return fail(400, SignUpResponse);
 		}
 
@@ -46,13 +48,13 @@ export const actions = {
 			ylIDList = await returnYLIDsList(collection);
 		} catch (error) {
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push(error.message || 'Error Connecting to DB');
+			SignUpResponse.errorMessages.push(error.message || locales.errorDBConnection[lang]);
 			return fail(400, SignUpResponse);
 		}
 
 		if (ylIDList.includes(ylid.toString())) {
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push('This ID is already in use!');
+			SignUpResponse.errorMessages.push(locales.errorYLIDUsed[lang]);
 			SignUpResponse.idTaken = true;
 			// return fail(400, SignUpResponse);
 		}
@@ -66,12 +68,12 @@ export const actions = {
 			if (emailList.includes(email.toString())) {
 				SignUpResponse.error = true;
 				SignUpResponse.emailUsed = true;
-				SignUpResponse.errorMessages.push('This email address has already been used!');
+				SignUpResponse.errorMessages.push(locales.errorEmailUsed[lang]);
 				// return fail(400, SignUpResponse);
 			}
 		} catch (error) {
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push('Error confirming email is available! Try again shortly!');
+			SignUpResponse.errorMessages.push(locales.errorCheckEmail[lang]);
 			return fail(500, SignUpResponse);
 		}
 
@@ -83,14 +85,14 @@ export const actions = {
 		if (!isPassStrong) {
 			SignUpResponse.weakPassword = true;
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push('Password is too weak! Follow password requirements!');
+			SignUpResponse.errorMessages.push(locales.errorWeakPassword[lang]);
 			// return fail(400, SignUpResponse);
 		}
 
 		if (password !== passwordRepeat) {
 			SignUpResponse.error = true;
 			SignUpResponse.passwordDiffer = true;
-			SignUpResponse.errorMessages.push('Passwords do not match!');
+			SignUpResponse.errorMessages.push(locales.errorPasswordNotMatch[lang]);
 			// return fail(400, SignUpResponse);
 		}
 
@@ -104,7 +106,7 @@ export const actions = {
 		else {
 			SignUpResponse.password = '';
 			SignUpResponse.error = true;
-			SignUpResponse.errorMessages.push('Error registering user.');
+			SignUpResponse.errorMessages.push(locales.errorRegister[lang]);
 			return fail(503, SignUpResponse);
 		}
 	},

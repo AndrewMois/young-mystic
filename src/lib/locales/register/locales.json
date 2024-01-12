@@ -1,0 +1,97 @@
+{
+  "register": {
+    "en": "Register",
+    "ru": "Регистрация",
+    "ua": "Реєстрація"
+  },
+  "alreadyHaveAcc": {
+    "en": "Already have an account?",
+    "ru": "Уже есть аккаунт?",
+    "ua": "Вже є аккаунт?"
+  },
+  "signInHere": {
+    "en": "Sign in here",
+    "ru": "Войти",
+    "ua": "Увійти"
+  },
+  "firstName": {
+    "en": "First name",
+    "ru": "Имя",
+    "ua": "Ім'я"
+  },
+  "lastName": {
+    "en": "Last name",
+    "ru": "Фамилия",
+    "ua": "Прізвище"
+  },
+  "email": {
+    "en": "Email",
+    "ru": "Почта",
+    "ua": "Пошта"
+  },
+  "password": {
+    "en": "Password",
+    "ru": "Пароль",
+    "ua": "Пароль"
+  },
+  "repeatPassword": {
+    "en": "Repeat password",
+    "ru": "Повторите пароль",
+    "ua": "Повторіть пароль"
+  },
+  "youngLivingId": {
+    "en": "Young Living ID",
+    "ru": "Young Living ID",
+    "ua": "Young Living ID"
+  },
+  "problemWithRegistration": {
+    "en": "Problem with registration?",
+    "ru": "Проблемы с регистрацией?",
+    "ua": "Проблеми з реєстрацією?"
+  },
+  "contactUs": {
+    "en": "Contact us",
+    "ru": "Свяжитесь с нами",
+    "ua": "Зв'яжіться з нами"
+  },
+  "fillAllFields": {
+    "en": "Please fill all fields",
+    "ru": "Пожалуйста, заполните все поля",
+    "ua": "Будь ласка, заповніть всі поля"
+  },
+  "errorDBConnection": {
+    "en": "Error with database connection",
+    "ru": "Ошибка соединения с базой данных",
+    "ua": "Помилка з'єднання з базою даних"
+  },
+  "errorYLIDUsed": {
+    "en": "This Young Living ID is already registered",
+    "ru": "Этот Young Living ID уже зарегистрирован",
+    "ua": "Цей Young Living ID вже зареєстрований"
+  },
+  "errorEmailUsed": {
+    "en": "This email is already registered",
+    "ru": "Этот email уже зарегистрирован",
+    "ua": "Цей email вже зареєстрований"
+  },
+  "errorCheckEmail": {
+    "en": "Error confirming email is available! Try again shortly!",
+    "ru": "Ошибка проверки доступности email! Попробуйте позже!",
+    "ua": "Помилка перевірки доступності email! Спробуйте пізніше!"
+  },
+  "errorWeakPassword": {
+    "en": "Password is too weak. Follow password requirements",
+    "ru": "Пароль слишком слабый. Следуйте требованиям к паролю",
+    "ua": "Пароль занадто слабкий. Дотримуйтесь вимог до паролю"
+  },
+  "errorPasswordNotMatch": {
+    "en": "Passwords do not match",
+    "ru": "Пароли не совпадают",
+    "ua": "Паролі не співпадають"
+  },
+  "errorRegister": {
+    "en": "Error with registration! Try again shortly!",
+    "ru": "Ошибка регистрации! Попробуйте позже!",
+    "ua": "Помилка реєстрації! Спробуйте пізніше!"
+  }
+}

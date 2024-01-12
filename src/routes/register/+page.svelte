@@ -1,8 +1,11 @@
 <script>
 	import Register from '$components/Auth/Register.svelte';
 	import Wrapper from '$components/Wrapper.svelte';
+	import locales from '$lib/locales/register/locales.json';
 
 	export let form;
+	export let data;
+	const lang = data.lang;
 </script>
 
 <svelte:head>
@@ -11,5 +14,5 @@
 </svelte:head>
 
 <Wrapper>
-	<Register {form} />
+	<Register {form} {locales} {lang} />
 </Wrapper>

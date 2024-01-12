@@ -2,18 +2,20 @@
 	import Alert from '$components/Alert.svelte';
 
 	export let form;
+	export let locales;
+	export let lang;
 </script>
 
 <div class='mt-7 bg-white border border-gray-200 rounded-xl shadow-sm max-w-md mx-auto'>
 	<div class='p-4 sm:p-7'>
 		<div class='text-center mb-4'>
-			<h1 class='block text-2xl font-bold text-gray-800 '>Register</h1>
+			<h1 class='block text-2xl font-bold text-gray-800 '>{locales.register[lang]}</h1>
 			<p class='mt-2 text-sm text-gray-600 '>
-				Already have an account?
+				{locales.alreadyHaveAcc[lang]}
 				<a
 					class='text-blue-600 decoration-2 hover:underline font-medium '
 					href='/login'>
-					Sign in here
+					{locales.signInHere[lang]}
 				</a>
 			</p>
 		</div>
@@ -27,7 +29,9 @@
 			<div class='grid gap-y-4'>
 				<!-- Form Group -->
 				<div>
-					<label for='firstName' class='block text-sm mb-2'>First name</label>
+					<label for='firstName' class='block text-sm mb-2'>
+						{locales.firstName[lang]}
+					</label>
 					<div class='relative'>
 						<input type='text' id='firstName' name='firstName'
 									 class='py-3 px-4 block w-full border-gray-200 rounded-lg text-sm border-2 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none '
@@ -39,7 +43,9 @@
 
 				<!-- Form Group -->
 				<div>
-					<label for='lastName' class='block text-sm mb-2'>Last name</label>
+					<label for='lastName' class='block text-sm mb-2'>
+						{locales.lastName[lang]}
+					</label>
 					<div class='relative'>
 						<input type='text' id='lastName' name='lastName'
 									 class='py-3 px-4 block w-full border-gray-200 rounded-lg text-sm border-2 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none '
@@ -51,7 +57,9 @@
 
 				<!-- Form Group -->
 				<div>
-					<label for='email' class='block text-sm mb-2'>Email address</label>
+					<label for='email' class='block text-sm mb-2'>
+						{locales.email[lang]}
+					</label>
 					<div class='relative'>
 						<input type='email' id='email' name='email' value={form?.email?? ''}
 									 class={`py-3 px-4 block w-full border-gray-200 rounded-lg border-2 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ${form?.emailUsed ? 'border-red-500' : ''}`}
@@ -71,7 +79,9 @@
 				<!-- Form Group -->
 				<div>
 					<div class='flex justify-between items-center mb-2 '>
-						<label for='password' class='block text-sm'>Password</label>
+						<label for='password' class='block text-sm'>
+							{locales.password[lang]}
+						</label>
 					</div>
 					<div class='relative'>
 						<input type='password' id='password' name='password'
@@ -92,7 +102,9 @@
 				<!-- Form Group -->
 				<div>
 					<div class='flex justify-between items-center mb-2 '>
-						<label for='passwordRepeat' class='block text-sm'>Repeat password</label>
+						<label for='passwordRepeat' class='block text-sm'>
+							{locales.repeatPassword[lang]}
+						</label>
 					</div>
 					<div class='relative'>
 						<input type='password' id='passwordRepeat' name='passwordRepeat'
@@ -113,7 +125,9 @@
 				<!-- Form Group -->
 				<div>
 					<div class='flex justify-between items-center mb-2 '>
-						<label for='passwordRepeat' class='block text-sm'>Young Living ID</label>
+						<label for='ylid' class='block text-sm'>
+							{locales.youngLivingId[lang]}
+						</label>
 					</div>
 					<div class='relative'>
 						<input type='text' id='ylid' name='ylid'
@@ -131,23 +145,23 @@
 					</div>
 				</div>
 				<!-- End Form Group -->
-
-				<!-- End Checkbox -->
+				<input type='hidden' name='lang' value={lang}>
+				<!-- End Language Hidden -->
 
 				<button type='submit'
 								class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none '>
-					Register
+					{locales.register[lang]}
 				</button>
 			</div>
 		</form>
 		<!-- End Form -->
 		<div class='mt-4 text-center'>
 			<p class='text-sm text-gray-600 '>
-				Problem registering?
+				{locales.problemWithRegistration[lang]}
 				<a
 					class='text-blue-600 decoration-2 hover:underline font-medium '
 					href='/contact'>
-					Contact us
+					{locales.contactUs[lang]}
 				</a>
 			</p>
 		</div>
