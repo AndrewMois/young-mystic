@@ -13,9 +13,8 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<TopBackground>
-	<Wrapper>
-		<Login {form} {locales} {lang} />
-	</Wrapper>
-</TopBackground>
+<TopBackground />
+<Wrapper extraClasses='-mt-20'>
+	<Login {form} {locales} {lang} />
+</Wrapper>
 
