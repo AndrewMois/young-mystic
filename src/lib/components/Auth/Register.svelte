@@ -4,7 +4,7 @@
 	export let form;
 	export let locales;
 	export let lang;
-	//TODO: add password requirements!!!
+	let isPasswordFocused = false;
 </script>
 
 <div class='text-black mt-7 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
@@ -58,6 +58,30 @@
 
 				<!-- Form Group -->
 				<div>
+					<div class='flex justify-between items-center mb-2 '>
+						<label for='ylid' class='block text-sm'>
+							{locales.youngLivingId[lang]}
+						</label>
+					</div>
+					<div class='relative'>
+						<input type='text' id='ylid' name='ylid'
+									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.idTaken ? 'border-red-500' : ''}`}
+									 value={form?.ylid?? ''}
+									 required>
+						<div
+							class={form?.idTaken ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
+							<svg class='h-5 w-5 text-red-500' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'
+									 aria-hidden='true'>
+								<path
+									d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z' />
+							</svg>
+						</div>
+					</div>
+				</div>
+				<!-- End Form Group -->
+
+				<!-- Form Group -->
+				<div>
 					<label for='email' class='block text-sm mb-2'>
 						{locales.email[lang]}
 					</label>
@@ -87,6 +111,8 @@
 					<div class='relative'>
 						<input type='password' id='password' name='password'
 									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.weakPassword || form?.passwordDiffer ? 'border-red-500' : ''}`}
+									 on:focus={() => isPasswordFocused = true}
+									 on:blur={() => isPasswordFocused = false}
 									 required>
 						<div
 							class={form?.weakPassword || form?.passwordDiffer ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
@@ -98,6 +124,15 @@
 						</div>
 					</div>
 				</div>
+				{#if isPasswordFocused}
+					<Alert type={'info'} marginBottom={false}
+								 title={locales.passwordRequirementsTitle[lang]}
+								 message={[locales.passwordRequirements1[lang],
+							 locales.passwordRequirements2[lang],
+							 locales.passwordRequirements3[lang],
+							 locales.passwordRequirements4[lang]]}
+					/>
+				{/if}
 				<!-- End Form Group -->
 
 				<!-- Form Group -->
@@ -110,6 +145,8 @@
 					<div class='relative'>
 						<input type='password' id='passwordRepeat' name='passwordRepeat'
 									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.passwordDiffer ? 'border-red-500' : ''}`}
+									 on:focus={() => isPasswordFocused = true}
+									 on:blur={() => isPasswordFocused = false}
 									 required>
 						<div
 							class={form?.passwordDiffer ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
@@ -123,29 +160,6 @@
 				</div>
 				<!-- End Form Group -->
 
-				<!-- Form Group -->
-				<div>
-					<div class='flex justify-between items-center mb-2 '>
-						<label for='ylid' class='block text-sm'>
-							{locales.youngLivingId[lang]}
-						</label>
-					</div>
-					<div class='relative'>
-						<input type='text' id='ylid' name='ylid'
-									 class={`py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none ${form?.idTaken ? 'border-red-500' : ''}`}
-									 value={form?.ylid?? ''}
-									 required>
-						<div
-							class={form?.idTaken ? 'absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3' : 'hidden'}>
-							<svg class='h-5 w-5 text-red-500' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'
-									 aria-hidden='true'>
-								<path
-									d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z' />
-							</svg>
-						</div>
-					</div>
-				</div>
-				<!-- End Form Group -->
 				<input type='hidden' name='lang' value={lang}>
 				<!-- End Language Hidden -->
 

@@ -34,6 +34,31 @@
     "ru": "Пароль",
     "ua": "Пароль"
   },
+  "passwordRequirementsTitle": {
+    "en": "Password requirements:",
+    "ru": "Требования к паролю:",
+    "ua": "Вимоги до паролю:"
+  },
+  "passwordRequirements1": {
+    "en": "At least 8 characters",
+    "ru": "Не менее 8 символов",
+    "ua": "Не менше 8 символів"
+  },
+  "passwordRequirements2": {
+    "en": "At least 1 uppercase letter",
+    "ru": "Не менее 1 заглавной буквы",
+    "ua": "Не менше 1 великої літери"
+  },
+  "passwordRequirements3": {
+    "en": "At least 1 lowercase letter",
+    "ru": "Не менее 1 строчной буквы",
+    "ua": "Не менше 1 малої літери"
+  },
+  "passwordRequirements4": {
+    "en": "At least 1 number",
+    "ru": "Не менее 1 цифры",
+    "ua": "Не менше 1 цифри"
+  },
   "repeatPassword": {
     "en": "Repeat password",
     "ru": "Повторите пароль",
