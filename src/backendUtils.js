@@ -100,6 +100,7 @@ export const createUserToRegister = async (form) => {
 		email: form.email.toString(),
 		password: hashedPassword,
 		ylid: form.ylid.toString(),
+		lang: form.lang.toString(),
 		blocked: false,
 		pending: true,
 		registerDate: new Date(),

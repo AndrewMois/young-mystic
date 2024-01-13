@@ -82,6 +82,26 @@
 
 				<!-- Form Group -->
 				<div>
+					<div class='flex justify-between items-center mb-2 '>
+						<label for='lang' class='block text-sm'>
+							{locales.preferredLanguage[lang]}
+						</label>
+					</div>
+					<div class='relative'>
+						<select
+							name='lang'
+							id='lang'
+							class='py-3 px-4 pe-9 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'>
+							<option value='ru' selected>Русский</option>
+							<option value='ua'>Українська</option>
+							<option value='en'>English</option>
+						</select>
+					</div>
+				</div>
+				<!-- End Form Group -->
+
+				<!-- Form Group -->
+				<div>
 					<label for='email' class='block text-sm mb-2'>
 						{locales.email[lang]}
 					</label>

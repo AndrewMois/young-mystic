@@ -24,6 +24,11 @@
     "ru": "Фамилия",
     "ua": "Прізвище"
   },
+  "preferredLanguage": {
+    "en": "Preferred language",
+    "ru": "Предпочитаемый язык",
+    "ua": "Мова"
+  },
   "email": {
     "en": "Email",
     "ru": "Электронная почта",

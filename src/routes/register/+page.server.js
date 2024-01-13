@@ -13,7 +13,7 @@ export const actions = {
 		const email = signupFormData.get('email').toLowerCase().trim() ?? '';
 		const password = signupFormData.get('password') ?? '';
 		const passwordRepeat = signupFormData.get('passwordRepeat') ?? '';
-		const lang = signupFormData.get('lang') ?? 'ru'; // default language
+		let lang = signupFormData.get('lang') ?? 'ru'; // default language
 
 		let SignUpResponse = {
 			emailUsed: false,
@@ -24,6 +24,7 @@ export const actions = {
 			errorMessages: [],
 			firstName,
 			lastName,
+			lang,
 			email,
 			ylid,
 			password: '',
@@ -57,6 +58,12 @@ export const actions = {
 			SignUpResponse.errorMessages.push(locales.errorYLIDUsed[lang]);
 			SignUpResponse.idTaken = true;
 			// return fail(400, SignUpResponse);
+		}
+
+		// -- Language Check -- //
+		const supportedLanguages = ['ru', 'ua', 'en'];
+		if (!supportedLanguages.includes(lang)) {
+			lang = 'ru'; // fallback language
 		}
 
 		// --- Email Check --- //
