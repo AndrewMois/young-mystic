@@ -3,7 +3,7 @@
 </script>
 
 <div class='background h-36'>
-	<Wrapper mobilePadding={true} extraClasses='h-24 w-full flex items-center content-center' />
+	<Wrapper mobilePadding={true} extraClasses='h-24 w-full' />
 	<slot />
 </div>
 
