@@ -3,6 +3,7 @@
 	import SummaryPanel from '$components/SummaryPanel.svelte';
 	import SearchBar from '$components/SearchBar.svelte';
 	import Card from '$components/Card.svelte';
+	import TopBackground from '$components/TopBackground.svelte';
 
 
 	export const load = async ({ parent }) => {
@@ -19,26 +20,20 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<div class='background h-36'>
-	<Wrapper mobilePadding={true} extraClasses='h-24 w-full flex items-center content-center'>
-		<!--			<p class='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-shadow-white'>Привет, {user?.firstName ?? ''}</p>-->
-	</Wrapper>
-
-
-	<Wrapper mobilePadding={true} extraClasses=''>
-		<SummaryPanel>
-			<div class='flex flex-col items-center justify-center gap-4'>
-				<SearchBar />
-				{#each menuData as item}
-					<Card title={item.title} href={item.slug?.current}
-								description={item.description ? item.description : undefined}
-								active={item.active}
-								image={item.image ? item.image : undefined} />
-				{/each}
-			</div>
-		</SummaryPanel>
-	</Wrapper>
-</div>
+<TopBackground />
+<Wrapper mobilePadding={true} extraClasses='-mt-20'>
+	<SummaryPanel>
+		<div class='flex flex-col items-center justify-center gap-4'>
+			<SearchBar />
+			{#each menuData as item}
+				<Card title={item.title} href={item.slug?.current}
+							description={item.description ? item.description : undefined}
+							active={item.active}
+							image={item.image ? item.image : undefined} />
+			{/each}
+		</div>
+	</SummaryPanel>
+</Wrapper>
 
 <style>
     .background {
