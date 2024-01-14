@@ -16,7 +16,7 @@ self.addEventListener('install', (event) => {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 
-		console.log('SW installed'); //TODO: remove
+		console.log('⭐️ app installed'); //TODO: remove
 	}
 
 	event.waitUntil(addFilesToCache());
@@ -31,7 +31,7 @@ self.addEventListener('activate', (event) => {
 	}
 
 	event.waitUntil(deleteOldCaches());
-	console.log('SW ready'); //TODO: remove
+	console.log('🌟 SW ready'); //TODO: remove
 });
 
 self.addEventListener('fetch', (event) => {
@@ -52,4 +52,14 @@ self.addEventListener('fetch', (event) => {
 			return cachedResponse || fetchPromise;
 		})(),
 	);
+});
+
+self.addEventListener('message', (event) => {
+	if (event.data && event.data.type === 'CLEAR_CACHES') {
+		caches.keys().then((names) => {
+			for (let name of names) caches.delete(name);
+		});
+		self.skipWaiting();
+		console.log('🌎 Language was changed. Cache was cleared.'); //TODO: remove
+	}
 });

@@ -4,10 +4,21 @@
 	export let locales;
 	export let lang;
 	export let form;
+
+	/**
+	 * Clear cache on language change by sending message to service worker
+	 */
+	function clearCache() {
+		if (typeof window !== 'undefined') {
+			if (navigator.serviceWorker.controller) {
+				navigator.serviceWorker.controller.postMessage({ type: 'CLEAR_CACHES' });
+			}
+		}
+	}
 </script>
 
 <!-- Language form -->
-<form method='post' action='?/lang'>
+<form method='post' action='?/lang' on:submit={clearCache}>
 
 	{#if form?.error}
 		<Alert type='error' title={locales.languageChangeError[lang]} />
