@@ -9,8 +9,9 @@ export async function load({ locals, cookies }) {
 	const lang = cookies.get('lang') || 'ru';
 	const data = await client.fetch(`*[_type == "menu" && language == "${lang}" && visible == true]
 	{title, slug, description, active, 
-	"image": image.asset->url}`,
+	"image": image.asset->url, order} | order(order asc)`,
 	);
+	console.log(data);
 
 	if (data && data.length > 0) {
 		return {
