@@ -11,7 +11,6 @@ export async function load({ locals, cookies }) {
 	{title, slug, description, active, 
 	"image": image.asset->url, order} | order(order asc)`,
 	);
-	console.log(data);
 
 	if (data && data.length > 0) {
 		return {
