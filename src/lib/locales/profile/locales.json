@@ -1,0 +1,27 @@
+{
+  "changeLanguage": {
+    "en": "Change Language",
+    "ru": "Изменить язык",
+    "ua": "Змінити мову"
+  },
+  "profileSettings": {
+    "en": "Profile Settings",
+    "ru": "Настройки профиля",
+    "ua": "Налаштування профілю"
+  },
+  "logout": {
+    "en": "Logout",
+    "ru": "Выйти",
+    "ua": "Вийти"
+  },
+  "confirm": {
+    "en": "Confirm",
+    "ru": "Подтвердить",
+    "ua": "Підтвердити"
+  },
+  "languageChangeError": {
+    "en": "Error while changing language",
+    "ru": "Ошибка при смене языка",
+    "ua": "Помилка при зміні мови"
+  }
+}

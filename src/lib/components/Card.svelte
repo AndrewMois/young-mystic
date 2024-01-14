@@ -13,7 +13,7 @@
 			 src={image}
 			 alt='essential oils mystical library'>
 	<div class='flex flex-col justify-between p-4 leading-normal'>
-		<h5 class=' text-2xl tracking-tight text-gray-900'>
+		<h5 class='text-2xl tracking-tight text-gray-900'>
 			{title}
 		</h5>
 		{#if description}

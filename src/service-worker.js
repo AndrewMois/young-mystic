@@ -16,17 +16,6 @@ self.addEventListener('install', (event) => {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 
-		// const client = createClient({
-		// 	projectId: 'lttjxemu',
-		// 	dataset: 'production',
-		// 	apiVersion: '2023-11-25',
-		// 	useCdn: false,
-		// });
-
-		// Fetch oils database and add it to the cache
-		// const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
-		// await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
-
 		console.log('SW installed'); //TODO: remove
 	}
 

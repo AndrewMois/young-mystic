@@ -152,6 +152,11 @@ export const checkBlockedbyEmail = async (collection, email) => {
 	}
 };
 
+/**
+ * @param collection
+ * @param email
+ * @returns {Promise<*|null>}
+ */
 export const getLangByEMail = async (collection, email) => {
 	const projection = { lang: 1 };
 
@@ -163,6 +168,24 @@ export const getLangByEMail = async (collection, email) => {
 		return users[0].lang;
 	} catch (error) {
 		console.error('Error finding if user is blocked by email:', error.message);
+		return null;
+	}
+};
+
+export const changeLangByEMail = async (collection, email, newLang) => {
+	const filter = { email: email };
+	const updateDoc = {
+		$set: {
+			lang: newLang,
+		},
+	};
+	const options = { upsert: false };
+
+	try {
+		const result = await collection.updateOne(filter, updateDoc, options);
+		return result;
+	} catch (error) {
+		console.error('Error changing language by email:', error.message);
 		return null;
 	}
 };

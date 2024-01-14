@@ -5,7 +5,7 @@ import {
 	checkPassword,
 	checkPendingbyEmail,
 	findUserByEmailWithPassword,
-	getLangByEMail
+	getLangByEMail,
 } from '../../backendUtils.js';
 import { JWT_SECRET } from '$env/static/private';
 import jwt from 'jsonwebtoken';
@@ -25,7 +25,7 @@ export const actions = {
 			email,
 			password: '',
 			pending: false,
-			blocked: false
+			blocked: false,
 		};
 
 		// --- General Checks --- //
@@ -116,8 +116,8 @@ export const actions = {
 		cookies.set('authToken', authToken, {
 			httpOnly: true,
 			maxAge: 60 * 60 * 24 * 7,
-			sameSite: 'strict'
+			sameSite: 'strict',
 		});
 		throw redirect(302, '/');
-	}
+	},
 };
