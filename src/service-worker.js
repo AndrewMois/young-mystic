@@ -31,7 +31,7 @@ self.addEventListener('activate', (event) => {
 	}
 
 	event.waitUntil(deleteOldCaches());
-	console.log('SW activated'); //TODO: remove
+	console.log('SW ready'); //TODO: remove
 });
 
 self.addEventListener('fetch', (event) => {
@@ -49,8 +49,6 @@ self.addEventListener('fetch', (event) => {
 					return networkResponse;
 				})
 				.catch(() => cachedResponse);
-
-			console.log('SW fetched'); //TODO: remove
 			return cachedResponse || fetchPromise;
 		})(),
 	);
