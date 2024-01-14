@@ -152,6 +152,21 @@ export const checkBlockedbyEmail = async (collection, email) => {
 	}
 };
 
+export const getLangByEMail = async (collection, email) => {
+	const projection = { lang: 1 };
+
+	try {
+		const users = await collection.find({ email: email }).project(projection).toArray();
+		if (users.length === 0) {
+			return null; // User not found
+		}
+		return users[0].lang;
+	} catch (error) {
+		console.error('Error finding if user is blocked by email:', error.message);
+		return null;
+	}
+};
+
 /**
  * @param {Object} collection
  * @param {String} email
