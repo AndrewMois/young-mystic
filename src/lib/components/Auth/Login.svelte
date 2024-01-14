@@ -26,7 +26,7 @@
 		{/if}
 
 		{#if form?.pending}
-			<Alert type='info' title={locales.blockedTitle[lang]} message={locales.pendingMessage[lang]} />
+			<Alert type='info' title={locales.pendingTitle[lang]} message={locales.pendingMessage[lang]} />
 		{/if}
 
 		{#if form?.blocked}
