@@ -1,0 +1,77 @@
+{
+  "login": {
+    "en": "Sign in",
+    "ru": "Вход",
+    "ua": "Увійти"
+  },
+  "noAccount": {
+    "en": "Don't have an account?",
+    "ru": "Нет аккаунта?",
+    "ua": "Немає аккаунта?"
+  },
+  "signUp": {
+    "en": "Sign up here",
+    "ru": "Регистрация",
+    "ua": "Реєстрація"
+  },
+  "email": {
+    "en": "Email",
+    "ru": "Почта",
+    "ua": "Пошта"
+  },
+  "password": {
+    "en": "Password",
+    "ru": "Пароль",
+    "ua": "Пароль"
+  },
+  "forgotPassword": {
+    "en": "Forgot password?",
+    "ru": "Забыли пароль?",
+    "ua": "Забули пароль?"
+  },
+  "signInButton": {
+    "en": "Sign in",
+    "ru": "Войти",
+    "ua": "Увійти"
+  },
+  "pendingTitle": {
+    "en": "Your registration is pending",
+    "ru": "Ваша регистрация находится на рассмотрении",
+    "ua": "Ваша реєстрація знаходиться на розгляді"
+  },
+  "blockedTitle": {
+    "en": "Your account is blocked",
+    "ru": "Ваш аккаунт заблокирован",
+    "ua": "Ваш аккаунт заблоковано"
+  },
+  "pendingMessage": {
+    "en": "Please, wait till we approve your account",
+    "ru": "Пожалуйста, дождитесь подтверждения вашего аккаунта",
+    "ua": "Будь ласка, зачекайте поки ми підтвердимо ваш аккаунт"
+  },
+  "blockedMessage": {
+    "en": "Please, reach out to us to unblock your account",
+    "ru": "Пожалуйста, свяжитесь с нами, чтобы разблокировать ваш аккаунт",
+    "ua": "Будь ласка, зв'яжіться з нами, щоб розблокувати ваш аккаунт"
+  },
+  "errorEmptyFields": {
+    "en": "Make sure you fill out all fields!",
+    "ru": "Пожалуйста, заполните все поля!",
+    "ua": "Будь ласка, заповніть всі поля!"
+  },
+  "errorInvalidCredentials": {
+    "en": "Invalid email address or password",
+    "ru": "Неверный адрес электронной почты или пароль",
+    "ua": "Невірна адреса електронної пошти або пароль"
+  },
+  "errorCannotCheck": {
+    "en": "Error checking credentials! Try again shortly",
+    "ru": "Ошибка проверки учетных данных! Попробуйте еще раз",
+    "ua": "Помилка перевірки облікових даних! Спробуйте ще раз"
+  },
+  "errorTryAgain": {
+    "en": "Oops, something went wrong! Try again shortly",
+    "ru": "Упс, что-то пошло не так! Попробуйте еще раз",
+    "ua": "Упс, щось пішло не так! Спробуйте ще раз"
+  }
+}

@@ -2,7 +2,7 @@
 	export let type; // success, error, warning, info
 	export let title;
 	export let message;
-
+	export let marginBottom = true;
 	let isMessageArray = false;
 	$: isMessageArray = Array.isArray(message);
 </script>
@@ -126,7 +126,7 @@
 <!-- Info type -->
 {#if type === 'info'}
 	<div
-		class='bg-blue-50 border border-blue-200 text-sm text-blue-800 rounded-lg p-4 mb-4'
+		class={`bg-blue-50 border border-blue-200 text-sm text-blue-800 rounded-lg p-4 ${marginBottom? 'mb-4' : ''}`}
 		role='alert'>
 		<div class='flex'>
 			<div class='flex-shrink-0'>

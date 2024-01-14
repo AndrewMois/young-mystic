@@ -16,18 +16,7 @@ self.addEventListener('install', (event) => {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 
-		// const client = createClient({
-		// 	projectId: 'lttjxemu',
-		// 	dataset: 'production',
-		// 	apiVersion: '2023-11-25',
-		// 	useCdn: false,
-		// });
-
-		// Fetch oils database and add it to the cache
-		// const oilsData = await client.fetch(`*[(_type == "oil" || _type=="blend") && language=="ru"]{slug, nameEn, nameRu} | order(nameEn asc)`);
-		// await cache.put('/api/oils', new Response(JSON.stringify(oilsData)));
-
-		console.log('SW installed'); //TODO: remove
+		console.log('⭐️ app installed'); //TODO: remove
 	}
 
 	event.waitUntil(addFilesToCache());
@@ -42,7 +31,7 @@ self.addEventListener('activate', (event) => {
 	}
 
 	event.waitUntil(deleteOldCaches());
-	console.log('SW activated'); //TODO: remove
+	console.log('🌟 SW ready'); //TODO: remove
 });
 
 self.addEventListener('fetch', (event) => {
@@ -60,9 +49,17 @@ self.addEventListener('fetch', (event) => {
 					return networkResponse;
 				})
 				.catch(() => cachedResponse);
-
-			console.log('SW fetched'); //TODO: remove
 			return cachedResponse || fetchPromise;
 		})(),
 	);
+});
+
+self.addEventListener('message', (event) => {
+	if (event.data && event.data.type === 'CLEAR_CACHES') {
+		caches.keys().then((names) => {
+			for (let name of names) caches.delete(name);
+		});
+		self.skipWaiting();
+		console.log('🌎 Language was changed. Cache was cleared.'); //TODO: remove
+	}
 });

@@ -1,0 +1,132 @@
+{
+  "register": {
+    "en": "Register",
+    "ru": "Регистрация",
+    "ua": "Реєстрація"
+  },
+  "alreadyHaveAcc": {
+    "en": "Already have an account?",
+    "ru": "Уже есть аккаунт?",
+    "ua": "Вже є аккаунт?"
+  },
+  "signInHere": {
+    "en": "Sign in here",
+    "ru": "Войти",
+    "ua": "Увійти"
+  },
+  "firstName": {
+    "en": "First name",
+    "ru": "Имя",
+    "ua": "Ім'я"
+  },
+  "lastName": {
+    "en": "Last name",
+    "ru": "Фамилия",
+    "ua": "Прізвище"
+  },
+  "preferredLanguage": {
+    "en": "Preferred language",
+    "ru": "Предпочитаемый язык",
+    "ua": "Мова"
+  },
+  "email": {
+    "en": "Email",
+    "ru": "Электронная почта",
+    "ua": "Електронна пошта"
+  },
+  "password": {
+    "en": "Password",
+    "ru": "Пароль",
+    "ua": "Пароль"
+  },
+  "passwordRequirementsTitle": {
+    "en": "Password requirements:",
+    "ru": "Требования к паролю:",
+    "ua": "Вимоги до паролю:"
+  },
+  "passwordRequirements1": {
+    "en": "At least 8 characters",
+    "ru": "Не менее 8 символов",
+    "ua": "Не менше 8 символів"
+  },
+  "passwordRequirements2": {
+    "en": "At least 1 uppercase letter",
+    "ru": "Не менее 1 заглавной буквы",
+    "ua": "Не менше 1 великої літери"
+  },
+  "passwordRequirements3": {
+    "en": "At least 1 lowercase letter",
+    "ru": "Не менее 1 строчной буквы",
+    "ua": "Не менше 1 малої літери"
+  },
+  "passwordRequirements4": {
+    "en": "At least 1 number",
+    "ru": "Не менее 1 цифры",
+    "ua": "Не менше 1 цифри"
+  },
+  "repeatPassword": {
+    "en": "Repeat password",
+    "ru": "Повторите пароль",
+    "ua": "Повторіть пароль"
+  },
+  "youngLivingId": {
+    "en": "Young Living ID",
+    "ru": "Young Living ID",
+    "ua": "Young Living ID"
+  },
+  "problemWithRegistration": {
+    "en": "Problem with registration?",
+    "ru": "Проблемы с регистрацией?",
+    "ua": "Проблеми з реєстрацією?"
+  },
+  "contactUs": {
+    "en": "Contact us",
+    "ru": "Свяжитесь с нами",
+    "ua": "Зв'яжіться з нами"
+  },
+  "errorTitle": {
+    "en": "Oops, there are some errors:",
+    "ru": "Упс, возникли ошибки:",
+    "ua": "Упс, виникли помилки:"
+  },
+  "fillAllFields": {
+    "en": "Please fill all fields",
+    "ru": "Пожалуйста, заполните все поля",
+    "ua": "Будь ласка, заповніть всі поля"
+  },
+  "errorDBConnection": {
+    "en": "Error with database connection",
+    "ru": "Ошибка соединения с базой данных",
+    "ua": "Помилка з'єднання з базою даних"
+  },
+  "errorYLIDUsed": {
+    "en": "This Young Living ID is already registered",
+    "ru": "Этот Young Living ID уже зарегистрирован",
+    "ua": "Цей Young Living ID вже зареєстрований"
+  },
+  "errorEmailUsed": {
+    "en": "This email is already registered",
+    "ru": "Этот email уже зарегистрирован",
+    "ua": "Цей email вже зареєстрований"
+  },
+  "errorCheckEmail": {
+    "en": "Error confirming email is available! Try again shortly!",
+    "ru": "Ошибка проверки доступности email! Попробуйте позже!",
+    "ua": "Помилка перевірки доступності email! Спробуйте пізніше!"
+  },
+  "errorWeakPassword": {
+    "en": "Password is too weak. Follow password requirements",
+    "ru": "Пароль слишком слабый. Следуйте требованиям к паролю",
+    "ua": "Пароль занадто слабкий. Дотримуйтесь вимог до паролю"
+  },
+  "errorPasswordNotMatch": {
+    "en": "Passwords do not match",
+    "ru": "Пароли не совпадают",
+    "ua": "Паролі не співпадають"
+  },
+  "errorRegister": {
+    "en": "Error with registration! Try again shortly!",
+    "ru": "Ошибка регистрации! Попробуйте позже!",
+    "ua": "Помилка реєстрації! Спробуйте пізніше!"
+  }
+}

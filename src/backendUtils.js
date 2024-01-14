@@ -100,6 +100,7 @@ export const createUserToRegister = async (form) => {
 		email: form.email.toString(),
 		password: hashedPassword,
 		ylid: form.ylid.toString(),
+		lang: form.lang.toString(),
 		blocked: false,
 		pending: true,
 		registerDate: new Date(),
@@ -147,6 +148,44 @@ export const checkBlockedbyEmail = async (collection, email) => {
 
 	} catch (error) {
 		console.error('Error finding if user is blocked by email:', error.message);
+		return null;
+	}
+};
+
+/**
+ * @param collection
+ * @param email
+ * @returns {Promise<*|null>}
+ */
+export const getLangByEMail = async (collection, email) => {
+	const projection = { lang: 1 };
+
+	try {
+		const users = await collection.find({ email: email }).project(projection).toArray();
+		if (users.length === 0) {
+			return null; // User not found
+		}
+		return users[0].lang;
+	} catch (error) {
+		console.error('Error finding if user is blocked by email:', error.message);
+		return null;
+	}
+};
+
+export const changeLangByEMail = async (collection, email, newLang) => {
+	const filter = { email: email };
+	const updateDoc = {
+		$set: {
+			lang: newLang,
+		},
+	};
+	const options = { upsert: false };
+
+	try {
+		const result = await collection.updateOne(filter, updateDoc, options);
+		return result;
+	} catch (error) {
+		console.error('Error changing language by email:', error.message);
 		return null;
 	}
 };
