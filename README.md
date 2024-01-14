@@ -45,6 +45,13 @@ The `lang` value is then available on all server side via `locals` and via cooki
 set `locals` object with `lang` variable. It is
 then fetched in `index.layout.server.js`. Then, it will be available in the `data` object on each page.
 The default language is set in `hooks.server.js` and is `ru`.
+To sum up, the lang value can be accessed in 3 ways:
+
+- from any page from `data` object;
+- from any server side file from `locals` object;
+- from any client side file from `cookie` object.
+
+
 
 
 

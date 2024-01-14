@@ -5,6 +5,7 @@ import {
 	checkPassword,
 	checkPendingbyEmail,
 	findUserByEmailWithPassword,
+	getLangByEMail
 } from '../../backendUtils.js';
 import { JWT_SECRET } from '$env/static/private';
 import jwt from 'jsonwebtoken';
@@ -24,12 +25,12 @@ export const actions = {
 			email,
 			password: '',
 			pending: false,
-			blocked: false,
+			blocked: false
 		};
 
 		// --- General Checks --- //
 
-		if ((email === '') || (password === '')) {
+		if (email === '' || password === '') {
 			LoginResponse.error = true;
 			LoginResponse.errorMessage = locales.errorEmptyFields[lang];
 			return fail(400, LoginResponse);
@@ -51,7 +52,6 @@ export const actions = {
 			LoginResponse.errorMessage = locales.errorCannotCheck[lang];
 			return fail(500, LoginResponse);
 		}
-
 
 		// --- Password Check --- //
 		LoginResponse.password = password;
@@ -97,10 +97,27 @@ export const actions = {
 			LoginResponse.errorMessage = error.message;
 		}
 
+		// --- Set language --- //
+		try {
+			const langFromDB = await getLangByEMail(collection, email);
+			if (langFromDB !== null && langFromDB !== undefined) {
+				LoginResponse.lang = langFromDB;
+			} else {
+				LoginResponse.lang = 'ru'; // fallback language
+			}
+			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 7 });
+		} catch (error) {
+			LoginResponse.errorMessage = error.message;
+		}
+
 		// Return a user mb or during auth with token?
 		LoginResponse.invalidCredentials = false;
-		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '24h' });
-		cookies.set('authToken', authToken, { httpOnly: true, maxAge: 60 * 60 * 24, sameSite: 'strict' });
+		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '168h' });
+		cookies.set('authToken', authToken, {
+			httpOnly: true,
+			maxAge: 60 * 60 * 24 * 7,
+			sameSite: 'strict'
+		});
 		throw redirect(302, '/');
-	},
+	}
 };

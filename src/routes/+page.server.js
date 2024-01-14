@@ -1,12 +1,12 @@
 import { redirect } from '@sveltejs/kit';
 import { client } from '../sanityClient.js';
 
-export async function load({ locals }) {
+export async function load({ locals, cookies }) {
 	if (!locals.authedUser) {
 		throw redirect(302, '/login');
 	}
 
-	const lang = locals.lang ? locals.lang : 'ru';
+	const lang = cookies.get('lang') || 'ru';
 	const data = await client.fetch(`*[_type == "menu" && language == "${lang}" && visible == true]
 	{title, slug, description, active, 
 	"image": image.asset->url}`,

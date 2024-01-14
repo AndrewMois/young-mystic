@@ -4,13 +4,14 @@
 	import SearchBar from '$components/SearchBar.svelte';
 	import Card from '$components/Card.svelte';
 	import TopBackground from '$components/TopBackground.svelte';
-
+	import locales from '$lib/locales/menu/locales.json';
 
 	export const load = async ({ parent }) => {
 		await parent();
 	};
 
 	export let data;
+	const lang = data.lang;
 	$: user = data?.authedUser;
 	const menuData = data.menu;
 </script>
@@ -24,7 +25,7 @@
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
 	<SummaryPanel>
 		<div class='flex flex-col items-center justify-center gap-4'>
-			<SearchBar />
+			<SearchBar {locales} {lang} />
 			{#each menuData as item}
 				<Card title={item.title} href={item.slug?.current}
 							description={item.description ? item.description : undefined}
@@ -34,3 +35,4 @@
 		</div>
 	</SummaryPanel>
 </Wrapper>
+

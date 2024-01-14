@@ -1,4 +1,6 @@
 <script>
+	export let locales;
+	export let lang = 'ru'; //fallback
 	let search = '';
 	let suggestions = [];
 	let selectedIndex = -1;
@@ -60,7 +62,7 @@
 		<input type='text' id='search' name='search'
 					 class='py-3 px-4 block w-full bg-white border-amber-50 border text-lg rounded-xl shadow-sm focus:ring-0 disabled:opacity-50 disabled:pointer-events-none placeholder-accent'
 					 class:rounded-b-none={!hideSuggestions && suggestions && suggestions.length > 0}
-					 placeholder='Поиск'
+					 placeholder={locales.search[lang]}
 					 bind:value={search} on:input={updateSuggestions} on:keydown={handleKeydown} on:blur={handleBlur}
 					 on:focus={updateSuggestions}
 					 autocomplete='off'>
