@@ -5,6 +5,8 @@
 	import Card from '$components/Card.svelte';
 	import TopBackground from '$components/TopBackground.svelte';
 	import locales from '$lib/locales/menu/locales.json';
+	import Profile from '$lib/icons/Profile.svg';
+	import MenuItem from '$components/MenuItem.svelte';
 
 	export const load = async ({ parent }) => {
 		await parent();
@@ -25,6 +27,7 @@
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
 	<SummaryPanel>
 		<div class='flex flex-col items-center justify-center gap-4'>
+
 			<SearchBar {locales} {lang} />
 			{#each menuData as item}
 				<Card title={item.title} href={item.slug?.current}
@@ -32,6 +35,9 @@
 							active={item.active}
 							image={item.image ? item.image : undefined} />
 			{/each}
+			
+			<MenuItem title={locales.profile[lang]} icon={Profile} />
+
 		</div>
 	</SummaryPanel>
 </Wrapper>
