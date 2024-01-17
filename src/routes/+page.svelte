@@ -14,7 +14,6 @@
 
 	export let data;
 	const lang = data.lang;
-	$: user = data?.authedUser;
 	const menuData = data.menu;
 </script>
 
@@ -36,7 +35,7 @@
 							image={item.image ? item.image : undefined} />
 			{/each}
 
-			<MenuItem title={locales.profile[lang]} icon={Profile} />
+			<MenuItem href={'/profile'} title={locales.profile[lang]} icon={Profile} />
 
 		</div>
 	</MenuPanel>
