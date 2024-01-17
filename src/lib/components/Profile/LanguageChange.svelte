@@ -23,8 +23,11 @@
 	{#if form?.error}
 		<Alert type='error' title={locales.languageChangeError[lang]} />
 	{/if}
+	{#if form?.langUnchanged}
+		<Alert type='warning' title={locales.languageUnchanged[lang]} />
+	{/if}
 	<div class='grid gap-y-4'>
-		
+
 		<div class='relative'>
 			<div class='flex justify-between items-center mb-2'>
 				<label for='lang' class='block text-sm'>

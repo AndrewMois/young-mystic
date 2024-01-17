@@ -8,11 +8,19 @@ export const actions = {
 	lang: async ({ cookies, request }) => {
 		const langForm = await request.formData();
 		const newLang = langForm.get('lang');
+		const currentLang = cookies.get('lang');
 
 		let langChangeResponse = {
 			lang: newLang,
 			error: true,
+			langUnchanged: false,
 		};
+
+		if (newLang === currentLang) {
+			langChangeResponse.error = false;
+			langChangeResponse.langUnchanged = true;
+			return fail(200, langChangeResponse);
+		}
 
 		const collection = await dbConn();
 
