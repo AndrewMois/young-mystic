@@ -5,6 +5,7 @@
 	import Wrapper from '$components/Wrapper.svelte';
 	import SearchBar from '$components/SearchBar.svelte';
 	import OilFilter from '$components/Oils/OilFilter.svelte';
+	import OilCard from '$components/Oils/OilCard.svelte';
 
 	export const load = async ({ parent }) => {
 		await parent(); // for auth check
@@ -26,20 +27,13 @@
 			<SearchBar {locales} {lang} />
 			<OilFilter {locales} {lang} />
 
+			{#if oils && oils.length}
+				{#each oils as oil}
+					<OilCard href={`/oils/${oil.slug.current}`} nameEn={oil.nameEn} nameRu={oil.nameRu} {lang} />
+				{/each}
+			{:else}
+				<p>No oils found.</p>
+			{/if}
 		</div>
 	</MenuPanel>
 </Wrapper>
-
-<a href='/oils?filter=oil'>Single oils</a>
-<a href='/oils?filter=blend'>Blends</a>
-<p>Here are our oils</p>
-{#if oils && oils.length}
-	<ul>
-		{#each oils as oil}
-			<li><a href={`/oils/${oil.slug.current}`}> {oil.nameEn} </a> - {oil.description ?? ''}</li>
-
-		{/each}
-	</ul>
-{:else}
-	<p>No oils found.</p>
-{/if}
