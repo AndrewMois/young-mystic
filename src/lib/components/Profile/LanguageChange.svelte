@@ -23,18 +23,21 @@
 	{#if form?.error}
 		<Alert type='error' title={locales.languageChangeError[lang]} />
 	{/if}
+	{#if form?.langUnchanged}
+		<Alert type='warning' title={locales.languageUnchanged[lang]} />
+	{/if}
 	<div class='grid gap-y-4'>
 
-		<div class='flex justify-between items-center mb-2 '>
-			<label for='lang' class='block text-sm'>
-				{locales.changeLanguage[lang]}
-			</label>
-		</div>
 		<div class='relative'>
+			<div class='flex justify-between items-center mb-2'>
+				<label for='lang' class='block text-sm'>
+					{locales.changeLanguage[lang]}
+				</label>
+			</div>
 			<select
 				name='lang'
 				id='lang'
-				class='py-3 px-4 pe-9 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'>
+				class='py-3 px-4 pe-9 block w-full border-accent rounded-xl border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'>
 				{#if lang === 'ru'}
 					<option value='ru' selected>Русский</option>
 				{:else}
@@ -55,7 +58,7 @@
 
 
 		<button type='submit'
-						class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent background-primary border-accent text-black hover:background-accent disabled:opacity-50 disabled:pointer-events-none'>
+						class='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-xl border border-transparent background-primary border-accent text-black hover:background-accent disabled:opacity-50 disabled:pointer-events-none'>
 			{locales.confirm[lang]}
 		</button>
 	</div>

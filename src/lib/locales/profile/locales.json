@@ -23,5 +23,25 @@
     "en": "Error while changing language",
     "ru": "Ошибка при смене языка",
     "ua": "Помилка при зміні мови"
+  },
+  "languageUnchanged": {
+    "en": "Select different language",
+    "ru": "Выберите другой язык",
+    "ua": "Виберіть іншу мову"
+  },
+  "name": {
+    "en": "Name",
+    "ru": "Имя",
+    "ua": "Ім'я"
+  },
+  "email": {
+    "en": "Email",
+    "ru": "Почта",
+    "ua": "Пошта"
+  },
+  "ylid": {
+    "en": "Member ID",
+    "ru": "ID участника",
+    "ua": "ID учасника"
   }
 }

@@ -1,7 +1,7 @@
 <script>
 	export let type; // success, error, warning, info
 	export let title;
-	export let message;
+	export let message = '';
 	export let marginBottom = true;
 	let isMessageArray = false;
 	$: isMessageArray = Array.isArray(message);

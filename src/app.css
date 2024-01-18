@@ -33,8 +33,16 @@
     background-color: var(--accent-colour);
 }
 
+.background-faded {
+    background-color: var(--faded-accent-colour);
+}
+
 .border-accent {
     border-color: var(--accent-colour);
+}
+
+.border-faded {
+    border-color: var(--faded-accent-colour);
 }
 
 .text-accent {

@@ -41,6 +41,7 @@
 
         --background-colour: #f8f2ec;
         --accent-colour: #c89b55;
+        --faded-accent-colour: #ddcfb6;
 
         @media screen and (min-width: 600px) {
             /* Styles for screens larger than 600px (small tablets) */

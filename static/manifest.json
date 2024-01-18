@@ -2,6 +2,11 @@
   "short_name": "Young Mystic",
   "name": "Young Mystic Library",
   "description": "Essential oils pocket library by Young Mystic",
+  "categories": [
+    "health",
+    "lifestyle",
+    "education"
+  ],
   "icons": [
     {
       "src": "icons/manifest-icon-192.maskable.png",
@@ -30,6 +35,6 @@
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#c89b55",
+  "background_color": "#f8f2ec"
 }
