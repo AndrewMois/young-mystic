@@ -27,6 +27,10 @@ You can preview the production build with `npm run preview`.
 
 ## Internal design notes
 
+### Styles
+
+Tailwind is used for styling. Global styles are defined in `app.css`, variables are defined in `+page.layout.svelte`.
+
 ### Auth
 
 Initially in login and register server files all the logic is processed. This is checked on in `index.server.js` and

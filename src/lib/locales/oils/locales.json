@@ -1,0 +1,17 @@
+{
+  "search": {
+    "en": "Search",
+    "ru": "Поиск",
+    "ua": "Пошук"
+  },
+  "singleOils": {
+    "en": "Single Oils",
+    "ru": "Мономасла",
+    "ua": "Моноолії"
+  },
+  "blends": {
+    "en": "Blends",
+    "ru": "Смеси",
+    "ua": "Суміші"
+  }
+}

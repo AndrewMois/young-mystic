@@ -41,6 +41,10 @@
     border-color: var(--accent-colour);
 }
 
+.border-faded {
+    border-color: var(--faded-accent-colour);
+}
+
 .text-accent {
     color: var(--accent-colour);
 }
