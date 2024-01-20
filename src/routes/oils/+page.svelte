@@ -21,19 +21,22 @@
 </svelte:head>
 <TopBackground />
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
-	<MenuPanel>
+	<MenuPanel extraClasses='mb-4'>
 		<div class='flex flex-col items-center justify-center gap-4'>
 
 			<SearchBar {locales} {lang} />
 			<OilFilter {locales} {lang} />
 
-			{#if oils && oils.length}
-				{#each oils as oil}
-					<OilCard href={`/oils/${oil.slug.current}`} nameEn={oil.nameEn} nameRu={oil.nameRu} {lang} />
-				{/each}
-			{:else}
-				<p>No oils found.</p>
-			{/if}
 		</div>
 	</MenuPanel>
+
+	{#if oils && oils.length}
+		{#each oils as oil}
+			<OilCard href={`/oils/${oil.slug.current}`} nameEn={oil.nameEn} nameRu={oil.nameRu} {lang}
+							 image={oil.image} />
+		{/each}
+	{:else}
+		<p>No oils found.</p>
+	{/if}
+
 </Wrapper>

@@ -24,7 +24,7 @@
 
 <TopBackground />
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
-	<MenuPanel>
+	<MenuPanel extraClasses='mb-8'>
 		<div class='flex flex-col items-center justify-center gap-4'>
 
 			<SearchBar {locales} {lang} />
