@@ -13,7 +13,7 @@ export async function load({ url, locals }) {
 	let filter = url.searchParams.get('filter') ?? 'oil';
 	// possible query params: filter=oil, filter=blend
 
-	const data = await client.fetch(`*[_type == "${filter}" && language == "${lang}"] | order(nameEn asc)`);
+	const data = await client.fetch(`*[_type == "${filter}" && language == "${lang}"] {nameEn, nameRu, description, slug, "image": image.asset->url} | order(nameEn asc)`);
 
 	if (data && data.length > 0) {
 		return {
