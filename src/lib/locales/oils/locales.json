@@ -43,5 +43,10 @@
     "en": "Active substances",
     "ru": "Активные вещества",
     "ua": "Активні речовини"
+  },
+  "description": {
+    "en": "Description",
+    "ru": "Описание",
+    "ua": "Опис"
   }
 }

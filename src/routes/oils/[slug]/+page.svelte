@@ -30,7 +30,9 @@
 			<!--	Name -->
 			<div>
 				<h2 class='text-2xl font-semibold'>{oilData.nameEn}</h2>
-				<h3>{oilData.nameRu}</h3>
+				{#if oilData.nameRu}
+					<h3>{oilData.nameRu}</h3>
+				{/if}
 			</div>
 
 			<!--	Volume	-->
@@ -91,9 +93,13 @@
 					</div>
 				{/if}
 
+				<!-- Description -->
 				{#if oilData.description}
-					<hr class='border-primary'>
-					<p>{oilData.description}</p>
+					<!--<hr class='border-primary'>-->
+					<div>
+						<p class='font-semibold'>{locales.description[lang]}:</p>
+						<p>{oilData.description}</p>
+					</div>
 				{/if}
 
 			</div>
