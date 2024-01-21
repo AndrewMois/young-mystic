@@ -18,10 +18,23 @@
 		<div class='flex flex-col items-center justify-center gap-4'>
 
 			<h2>{oilData.nameEn}</h2>
+			<p>Available volumes:</p>
+			<p>Latin name</p>
+			<p>Botanical family</p>
+			<p>Origin</p>
+			<p>Extraction method</p>
+			<p>Active ingredients</p>
+			<hr>
 			<p>{oilData.description}</p>
 
 		</div>
 	</SummaryPanel>
+	<!--	Render all sections-->
+	<p>Historical info</p>
+	<p>Theorapeutic usage</p>
+	<p>Usage situations</p>
+	<p>Mental effect</p>
+	<p>Soul effect</p>
 </Wrapper>
 
 
