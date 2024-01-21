@@ -10,10 +10,11 @@ const client = createClient({
 
 export async function load({ url, locals }) {
 	const lang = locals.lang ? locals.lang : 'ru';
-	let filter = url.searchParams.get('filter') ?? 'oil';
+	let filter = url.searchParams.get('filter') ?? '';
 	// possible query params: filter=oil, filter=blend
 
-	const data = await client.fetch(`*[_type == "${filter}" && language == "${lang}"] {nameEn, nameRu, description, slug, "image": image.asset->url} | order(nameEn asc)`);
+	let query = `*[${filter === '' ? '(_type == "oil" || _type == "blend")' : `_type == "${filter}"`} && language == "${lang}"] {nameEn, nameRu, description, slug, "image": image.asset->url} | order(nameEn asc)`;
+	const data = await client.fetch(query);
 
 	if (data && data.length > 0) {
 		return {
