@@ -13,7 +13,7 @@ export async function load({ params, locals }) {
 	const lang = locals.lang ? locals.lang : 'ru';
 
 
-	const data = await client.fetch(`*[slug.current == "${slug}" && language == "${lang}"]`);
+	const data = await client.fetch(`*[slug.current == "${slug}" && language == "${lang}"]{..., "image": image.asset->url}`);
 	if (data && data.length > 0) {
 		return {
 			oil: data[0],

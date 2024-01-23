@@ -13,5 +13,40 @@
     "en": "Blends",
     "ru": "Смеси",
     "ua": "Суміші"
+  },
+  "ml": {
+    "en": "ml",
+    "ru": "мл",
+    "ua": "мл"
+  },
+  "latinName": {
+    "en": "Latin name",
+    "ru": "Латинское название",
+    "ua": "Латинська назва"
+  },
+  "family": {
+    "en": "Family",
+    "ru": "Семейство",
+    "ua": "Родина"
+  },
+  "origin": {
+    "en": "Origin",
+    "ru": "Происхождение",
+    "ua": "Походження"
+  },
+  "extractionMethod": {
+    "en": "Extraction method",
+    "ru": "Метод получения",
+    "ua": "Метод отримання"
+  },
+  "activeSubstances": {
+    "en": "Active substances",
+    "ru": "Активные вещества",
+    "ua": "Активні речовини"
+  },
+  "description": {
+    "en": "Description",
+    "ru": "Описание",
+    "ua": "Опис"
   }
 }
