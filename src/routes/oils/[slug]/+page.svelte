@@ -3,6 +3,8 @@
 	import Wrapper from '$components/Wrapper.svelte';
 	import TopBackground from '$components/TopBackground.svelte';
 	import SummaryPanel from '$components/SummaryPanel.svelte';
+	import Accordion from '$components/Oils/Accordion.svelte';
+	import Footer from '$components/Footer.svelte';
 
 	export let data;
 	const lang = data.lang;
@@ -104,16 +106,14 @@
 
 			</div>
 		</SummaryPanel>
-		<!--	Render all sections-->
-		<p>Historical info</p>
-		<p>Theorapeutic usage</p>
-		<p>Usage situations</p>
-		<p>Mental effect</p>
-		<p>Soul effect</p>
+
+		<Accordion sections={oilData.textSections} />
 	{:else }
 		<p>Oil not found</p>
 	{/if}
 </Wrapper>
+<Footer {lang} />
+
 
 
 
