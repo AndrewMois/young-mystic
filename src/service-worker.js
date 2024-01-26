@@ -38,6 +38,9 @@ self.addEventListener('fetch', (event) => {
 	// ignore POST requests etc
 	if (event.request.method !== 'GET') return;
 
+	// avoid caching login, logout and register pages
+	if (event.request.url.includes('/login') || event.request.url.includes('/logout') || event.request.url.includes('/register')) return;
+
 	event.respondWith(
 		(async function() {
 			const cache = await caches.open(CACHE);
