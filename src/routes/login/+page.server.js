@@ -105,17 +105,17 @@ export const actions = {
 			} else {
 				LoginResponse.lang = 'ru'; // fallback language
 			}
-			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 7 });
+			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 });
 		} catch (error) {
 			LoginResponse.errorMessage = error.message;
 		}
 
 		// Return a user mb or during auth with token?
 		LoginResponse.invalidCredentials = false;
-		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '168h' });
+		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '30d' });
 		cookies.set('authToken', authToken, {
 			httpOnly: true,
-			maxAge: 60 * 60 * 24 * 7,
+			maxAge: 60 * 60 * 24 * 30,
 			sameSite: 'strict',
 		});
 		throw redirect(302, '/');
