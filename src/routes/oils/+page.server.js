@@ -1,14 +1,19 @@
 import { createClient } from '@sanity/client';
+import { redirect } from '@sveltejs/kit';
 
 const client = createClient({
 	projectId: 'lttjxemu',
 	dataset: 'production',
 	apiVersion: '2023-11-25',
-	useCdn: false,
+	useCdn: false
 });
 
 
 export async function load({ url, locals }) {
+	if (!locals.authedUser) {
+		throw redirect(302, '/login');
+	}
+
 	const lang = locals.lang ? locals.lang : 'ru';
 	let filter = url.searchParams.get('filter') ?? '';
 	// possible query params: filter=oil, filter=blend
@@ -18,11 +23,11 @@ export async function load({ url, locals }) {
 
 	if (data && data.length > 0) {
 		return {
-			oils: data,
+			oils: data
 		};
 	}
 	return {
 		status: 500,
-		body: new Error('Internal Server Error'),
+		body: new Error('Internal Server Error')
 	};
 }

@@ -4,15 +4,15 @@
 	import TopNav from '$components/TopNav.svelte';
 	import { onMount } from 'svelte';
 
-	export let data;
+	export const load = async ({ parent }) => {
+		await parent();
+	};
 
 	//fetching to save into cache
 	onMount(() => {
 		fetch('/api/oils')
 			.then(response => response.json());
 	});
-
-	$: user = data?.authedUser;
 </script>
 
 <TopNav>

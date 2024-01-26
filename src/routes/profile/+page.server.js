@@ -1,8 +1,14 @@
 import { dbConn } from '../../dbConn.js';
 import { changeLangByEMail } from '../../backendUtils.js';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '$env/static/private';
+
+export async function load({ locals }) {
+	if (!locals.authedUser) {
+		throw redirect(302, '/login');
+	}
+}
 
 export const actions = {
 	lang: async ({ cookies, request }) => {
@@ -13,7 +19,7 @@ export const actions = {
 		let langChangeResponse = {
 			lang: newLang,
 			error: true,
-			langUnchanged: false,
+			langUnchanged: false
 		};
 
 		if (newLang === currentLang) {
@@ -50,5 +56,5 @@ export const actions = {
 			console.error(error);
 			return fail(500, langChangeResponse);
 		}
-	},
+	}
 };

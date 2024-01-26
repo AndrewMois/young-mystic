@@ -5,11 +5,17 @@ import {
 	checkPassword,
 	checkPendingbyEmail,
 	findUserByEmailWithPassword,
-	getLangByEMail,
+	getLangByEMail
 } from '../../backendUtils.js';
 import { JWT_SECRET } from '$env/static/private';
 import jwt from 'jsonwebtoken';
 import locales from '$lib/locales/login/locales.json';
+
+export async function load({ locals }) {
+	if (locals.authedUser) {
+		throw redirect(302, '/');
+	}
+}
 
 export const actions = {
 	login: async ({ cookies, request }) => {
@@ -25,7 +31,7 @@ export const actions = {
 			email,
 			password: '',
 			pending: false,
-			blocked: false,
+			blocked: false
 		};
 
 		// --- General Checks --- //
@@ -116,8 +122,8 @@ export const actions = {
 		cookies.set('authToken', authToken, {
 			httpOnly: true,
 			maxAge: 60 * 60 * 24 * 30,
-			sameSite: 'strict',
+			sameSite: 'strict'
 		});
 		throw redirect(302, '/');
-	},
+	}
 };

@@ -4,6 +4,9 @@
 	import locales from '$lib/locales/login/locales.json';
 	import TopBackground from '$components/TopBackground.svelte';
 
+	export const load = async ({ parent }) => {
+		await parent(); // for auth check
+	};
 	export let form;
 	export let data;
 	const lang = data.lang;

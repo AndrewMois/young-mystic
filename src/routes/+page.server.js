@@ -9,16 +9,16 @@ export async function load({ locals, cookies }) {
 	const lang = cookies.get('lang') || 'ru';
 	const data = await client.fetch(`*[_type == "menu" && language == "${lang}" && visible == true]
 	{title, slug, description, active, 
-	"image": image.asset->url, order} | order(order asc)`,
+	"image": image.asset->url, order} | order(order asc)`
 	);
 
 	if (data && data.length > 0) {
 		return {
-			menu: data,
+			menu: data
 		};
 	}
 	return {
 		status: 500,
-		body: new Error('Couldn\'t load menu'),
+		body: new Error('Couldn\'t load menu')
 	};
 }

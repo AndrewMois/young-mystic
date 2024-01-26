@@ -4,6 +4,12 @@ import { createUserToRegister, registerUser, returnEmailsList, returnYLIDsList }
 import { checkPassword } from '../../passwordCheck.js';
 import locales from '$lib/locales/register/locales.json';
 
+export async function load({ locals }) {
+	if (locals.authedUser) {
+		throw redirect(302, '/');
+	}
+}
+
 export const actions = {
 	signup: async ({ request }) => {
 		const signupFormData = await request.formData();
@@ -28,7 +34,7 @@ export const actions = {
 			email,
 			ylid,
 			password: '',
-			passwordRepeat: '',
+			passwordRepeat: ''
 		};
 
 		// --- General Checks --- //
@@ -116,5 +122,5 @@ export const actions = {
 			SignUpResponse.errorMessages.push(locales.errorRegister[lang]);
 			return fail(503, SignUpResponse);
 		}
-	},
+	}
 };
