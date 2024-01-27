@@ -88,9 +88,7 @@
 
 		<!-- Description -->
 		{#if oilData.description}
-			<!--<hr class='border-primary'>-->
 			<div>
-				<!--				<p class='font-semibold'>{locales.description[lang]}:</p>-->
 				<p class='mb-2 ml-3 leading-relaxed'>{oilData.description}</p>
 			</div>
 		{/if}
