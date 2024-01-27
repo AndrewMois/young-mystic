@@ -5,11 +5,11 @@
 	import SummaryPanel from '$components/SummaryPanel.svelte';
 	import Accordion from '$components/Oils/Accordion.svelte';
 	import Footer from '$components/Footer.svelte';
+	import SummaryText from '$components/Oils/SummaryText.svelte';
 
 	export let data;
 	const lang = data.lang;
 	$: oilData = data.oil;
-	console.log(data.oil); //TODO remove
 </script>
 <svelte:head>
 	<title>{oilData.nameEn} | YM</title>
@@ -52,42 +52,30 @@
 
 				<!-- Latin name -->
 				{#if oilData.summaryPanel?.latinName}
-					<div class='flex flex-col justify-between xs:flex-row'>
-						<p class='font-semibold'>{locales.latinName[lang]}:</p>
-						<p>{oilData.summaryPanel.latinName}</p>
-					</div>
+					<SummaryText header={locales.latinName[lang]} text={oilData.summaryPanel.latinName} />
 				{/if}
 
 				<!-- Botanical family -->
 				{#if oilData.summaryPanel?.botanicalFamily}
-					<div class='flex flex-col justify-between xs:flex-row'>
-						<p class='font-semibold'>{locales.family[lang]}:</p>
-						<p>{oilData.summaryPanel.botanicalFamily}</p>
-					</div>
+					<SummaryText header={locales.family[lang]} text={oilData.summaryPanel.botanicalFamily} />
 				{/if}
 
 				<!-- Origin -->
 				{#if oilData.summaryPanel?.origin}
-					<div class='flex flex-col justify-between xs:flex-row'>
-						<p class='font-semibold'>{locales.origin[lang]}:</p>
-						<p>{oilData.summaryPanel.origin}</p>
-					</div>
+					<SummaryText header={locales.origin[lang]} text={oilData.summaryPanel.origin} />
 				{/if}
 
 				<!-- Extraction method -->
 				{#if oilData.summaryPanel?.extractionMethod}
-					<div class='flex flex-col justify-between xs:flex-row'>
-						<p class='font-semibold'>{locales.extractionMethod[lang]}:</p>
-						<p>{oilData.summaryPanel.extractionMethod}</p>
-					</div>
+					<SummaryText header={locales.extractionMethod[lang]} text={oilData.summaryPanel.extractionMethod} />
 				{/if}
 
 				<!-- Active substances -->
 				{#if oilData.summaryPanel?.activeIngredients}
-					<div class='flex flex-col justify-between xs:flex-row'>
-						<p class='font-semibold'>{locales.activeSubstances[lang]}:</p>
+					<div class='flex flex-col justify-between xs:flex-row gap-1'>
+						<p class='font-semibold basis-2/5'>{locales.activeSubstances[lang]}:</p>
 
-						<ul class='flex flex-col list-disc ml-3'>
+						<ul class='basis-3/5 flex flex-col list-disc ml-3'>
 							{#each oilData.summaryPanel.activeIngredients as ingredient}
 								<li>{ingredient.children[0].text}</li>
 							{/each}
@@ -95,17 +83,17 @@
 					</div>
 				{/if}
 
-				<!-- Description -->
-				{#if oilData.description}
-					<!--<hr class='border-primary'>-->
-					<div>
-						<p class='font-semibold'>{locales.description[lang]}:</p>
-						<p>{oilData.description}</p>
-					</div>
-				{/if}
-
 			</div>
 		</SummaryPanel>
+
+		<!-- Description -->
+		{#if oilData.description}
+			<!--<hr class='border-primary'>-->
+			<div>
+				<!--				<p class='font-semibold'>{locales.description[lang]}:</p>-->
+				<p class='mb-2 ml-3 leading-relaxed'>{oilData.description}</p>
+			</div>
+		{/if}
 
 		<Accordion sections={oilData.textSections} />
 	{:else }
