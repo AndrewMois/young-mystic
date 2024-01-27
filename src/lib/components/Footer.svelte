@@ -39,7 +39,7 @@
 				class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-black-300">
 				<a
 					class='inline-flex gap-x-2 text-sm text-black-500 hover:text-black-800'
-					href='#'>
+					href='/'>
 					{locales.contacts[lang]}
 				</a>
 			</li>
@@ -50,7 +50,7 @@
 		<div class='md:text-end space-x-2'>
 			<a
 				class='w-8 h-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black-500 hover:bg-black-50 disabled:opacity-50 disabled:pointer-events-none'
-				href='#'>
+				href='https://www.youtube.com/@Young-Mystic'>
 				<img src={Youtube} alt='facebook logo' class='h-5 w-5'>
 			</a>
 			<a
@@ -60,12 +60,12 @@
 			</a>
 			<a
 				class='w-8 h-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black-500 hover:bg-black-50 disabled:opacity-50 disabled:pointer-events-none'
-				href='#'>
+				href='https://t.me/YoungMysticOils'>
 				<img src={Telegram} alt='facebook logo' class='h-5 w-5'>
 			</a>
 			<a
 				class='w-8 h-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black-500 hover:bg-black-50 disabled:opacity-50 disabled:pointer-events-none'
-				href='#'>
+				href='https://www.facebook.com/youngmystic.oils'>
 				<img src={Facebook} alt='facebook logo' class='h-5 w-5'>
 			</a>
 		</div>
