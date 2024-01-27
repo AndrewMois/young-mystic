@@ -6,6 +6,7 @@
 	import Accordion from '$components/Oils/Accordion.svelte';
 	import Footer from '$components/Footer.svelte';
 	import SummaryText from '$components/Oils/SummaryText.svelte';
+	import TopScrollButton from '$components/Oils/TopScrollButton.svelte';
 
 	export let data;
 	const lang = data.lang;
@@ -98,6 +99,7 @@
 		<p>Oil not found</p>
 	{/if}
 </Wrapper>
+<TopScrollButton />
 <Footer {lang} />
 
 
