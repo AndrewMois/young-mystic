@@ -7,6 +7,7 @@
 	import Footer from '$components/Footer.svelte';
 	import SummaryText from '$components/Oils/SummaryText.svelte';
 	import TopScrollButton from '$components/Oils/TopScrollButton.svelte';
+	import BlendIngredients from '$components/Oils/BlendIngredients.svelte';
 
 	export let data;
 	const lang = data.lang;
@@ -48,6 +49,7 @@
 				{/each}
 			</div>
 		</div>
+
 		<SummaryPanel extraClasses='mb-4'>
 			<div class='flex flex-col gap-4 text-sm'>
 
@@ -82,6 +84,11 @@
 							{/each}
 						</ul>
 					</div>
+				{/if}
+
+				<!-- Ingredients -->
+				{#if oilData.ingredients && oilData.ingredients.length > 0}
+					<BlendIngredients title={locales.constuents[lang]} ingredients={oilData.ingredients} />
 				{/if}
 
 			</div>
