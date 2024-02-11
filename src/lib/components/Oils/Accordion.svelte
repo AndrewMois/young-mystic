@@ -3,7 +3,6 @@
 	 * Component that accepts an array of blocks from Sanity and renders them as HTML. Pass textSections as the prop.
 	 */
 	export let sections = [];
-	console.log(sections);//TODO remove
 </script>
 
 {#each sections as section (section._key)}
