@@ -4,7 +4,10 @@
 	import TopNav from '$components/TopNav.svelte';
 	import { onMount } from 'svelte';
 	import TopBackground from '$components/TopBackground.svelte';
+	import locales from '$lib/locales/common/locales.json';
 
+	export let data;
+	const lang = data.lang;
 	export const load = async ({ parent }) => {
 		await parent();
 	};
@@ -20,7 +23,7 @@
 	YOUNG MYSTIC
 </TopNav>
 
-<TopBackground />
+<TopBackground oils={locales.oils[lang]} blends={locales.blends[lang]} />
 <Wrapper mobilePadding={false}>
 	<main>
 		<slot />
