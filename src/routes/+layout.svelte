@@ -3,6 +3,7 @@
 	import '../app.css';
 	import TopNav from '$components/TopNav.svelte';
 	import { onMount } from 'svelte';
+	import TopBackground from '$components/TopBackground.svelte';
 
 	export const load = async ({ parent }) => {
 		await parent();
@@ -19,6 +20,7 @@
 	YOUNG MYSTIC
 </TopNav>
 
+<TopBackground />
 <Wrapper mobilePadding={false}>
 	<main>
 		<slot />
