@@ -1,8 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 
-export async function load({ locals, cookies }) {
-
-	if (!locals.authedUser) {
+export async function load({ locals, cookies, url }) {
+	if (!locals.authedUser && (url.pathname !== '/login' && url.pathname !== '/register')) {
 		throw redirect(302, '/login');
 	}
 

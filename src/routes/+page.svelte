@@ -2,7 +2,6 @@
 	import Wrapper from '$components/Wrapper.svelte';
 	import SearchBar from '$components/SearchBar.svelte';
 	import Card from '$components/Card.svelte';
-	import TopBackground from '$components/TopBackground.svelte';
 	import locales from '$lib/locales/menu/locales.json';
 	import Profile from '$lib/icons/Profile.svg';
 	import MenuItem from '$components/MenuItem.svelte';
@@ -22,7 +21,6 @@
 	<meta name='description' content='Библиотека эфирных масел Young Living' />
 </svelte:head>
 
-<TopBackground />
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
 	<MenuPanel extraClasses='mb-8'>
 		<div class='flex flex-col items-center justify-center gap-4'>

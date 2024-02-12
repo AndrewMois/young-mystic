@@ -48,5 +48,10 @@
     "en": "Description",
     "ru": "Описание",
     "ua": "Опис"
+  },
+  "constuents": {
+    "en": "Constuents",
+    "ru": "Состав",
+    "ua": "Склад"
   }
 }

@@ -1,7 +1,15 @@
 <script>
+	import { page } from '$app/stores';
+
 	export let locales;
 	export let lang = 'ru'; //fallback
-	let selectedFilter = null;
+
+	/**
+	 * Get the current filter from the URL to highlight the corresponding button
+	 * if the user navigates back to the page from the product page
+	 */
+	let params = new URLSearchParams($page.url.search);
+	let selectedFilter = params.get('filter') || null;
 </script>
 
 <div class='w-full flex gap-4'>

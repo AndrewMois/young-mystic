@@ -1,7 +1,6 @@
 <script>
 	import locales from '$lib/locales/profile/locales.json';
 	import Wrapper from '$components/Wrapper.svelte';
-	import TopBackground from '$components/TopBackground.svelte';
 	import LanguageChange from '$components/Profile/LanguageChange.svelte';
 	import LogoutIcon from '$lib/icons/Logout.svg';
 	import ProfileItem from '$components/Profile/ProfileItem.svelte';
@@ -11,7 +10,6 @@
 	let lang = data.lang;
 </script>
 
-<TopBackground />
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
 	<div class='text-black mt-7 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
 		<div class='grid gap-y-4 p-4 sm:p-7'>

@@ -14,7 +14,7 @@
 			<p class='mt-2 text-sm'>
 				{locales.noAccount[lang]}
 				<a
-					class='border-b border-accent decoration-2 hover:underline font-medium hover:border-b-2'
+					class='border-b border-accent decoration-2 font-medium hover:border-b-2'
 					href='/register'>
 					{locales.signUp[lang]}
 				</a>
@@ -56,7 +56,7 @@
 					<div class='flex justify-between items-center mb-2 '>
 						<label for='password' class='block text-sm'>{locales.password[lang]}</label>
 						<a
-							class='text-sm border-b border-accent decoration-2 hover:underline font-medium hover:border-b-2'
+							class='text-sm border-b border-accent decoration-2  font-medium hover:border-b-2'
 							href='../examples/html/recover-account.html'>{locales.forgotPassword[lang]}</a>
 					</div>
 					<div class='relative'>
