@@ -14,7 +14,7 @@
 			<p class='mt-2 text-sm'>
 				{locales.alreadyHaveAcc[lang]}
 				<a
-					class='border-b border-accent decoration-2 hover:underline font-medium hover:border-b-2'
+					class='border-b border-accent decoration-2  font-medium hover:border-b-2'
 					href='/login'>
 					{locales.signInHere[lang]}
 				</a>
@@ -195,7 +195,7 @@
 				{locales.problemWithRegistration[lang]}
 			</p>
 			<a
-				class='border-b border-accent decoration-2 hover:underline font-medium text-sm hover:border-b-2'
+				class='border-b border-accent decoration-2  font-medium text-sm hover:border-b-2'
 				href='/contact'>
 				{locales.contactUs[lang]}
 			</a>
