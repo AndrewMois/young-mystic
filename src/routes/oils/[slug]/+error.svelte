@@ -30,8 +30,8 @@
 	<a href='/oils'
 		 class='mt-6 px-4 py-2 font-semibold background-accent rounded'>{locales.backToLibrary[lang]}</a>
 	<p class='text-sm mt-4'>{$page.status}: {$page.error.message}</p>
-	{#if $page.error.code}
-		<p class='text-xs mt-1 mb-4'>{locales.refCode[lang]}: {$page.error.code}</p>
+	{#if $page.error.code && $page.error.timestamp}
+		<p class='text-xs mt-1 mb-4'>[{$page.error.timestamp}] {locales.refCode[lang]}: {$page.error.code}</p>
 	{/if}
 
 </div>

@@ -34,9 +34,11 @@ export async function load({ params, locals }) {
 			oil: data[0],
 		};
 	} else {
+		let timestamp = new Date(Date.now());
 		error(404, {
-        			message: 'Not found',
-        			code: 'NOT_FOUND',
-        		});
+			message: 'Not found',
+			code: 'NOT_FOUND',
+			timestamp: timestamp.toLocaleDateString('en-US') + ' ' + timestamp.toLocaleTimeString('en-US'),
+		});
 	}
 }
