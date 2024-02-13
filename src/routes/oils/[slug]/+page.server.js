@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import { redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 const client = createClient({
 	projectId: 'lttjxemu',
@@ -28,13 +28,15 @@ export async function load({ params, locals }) {
     "slug": slug.current
   }
 	}`);
+
 	if (data && data.length > 0) {
 		return {
 			oil: data[0],
 		};
+	} else {
+		throw error(404, {
+			message: 'Not found',
+			code: 'NOT_FOUND',
+		});
 	}
-	return {
-		status: 404,
-		body: new Error('This page does not exist'),
-	};
 }
