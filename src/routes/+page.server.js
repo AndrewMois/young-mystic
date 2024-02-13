@@ -3,7 +3,7 @@ import { client } from '../sanityClient.js';
 
 export async function load({ locals, cookies }) {
 	if (!locals.authedUser) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 
 	const lang = cookies.get('lang') || 'ru';

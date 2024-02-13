@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import { redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 const client = createClient({
 	projectId: 'lttjxemu',
@@ -12,7 +12,7 @@ const client = createClient({
 export async function load({ params, locals }) {
 
 	if (!locals.authedUser) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 
 	let slug = params.slug;
@@ -28,13 +28,17 @@ export async function load({ params, locals }) {
     "slug": slug.current
   }
 	}`);
+
 	if (data && data.length > 0) {
 		return {
 			oil: data[0],
 		};
+	} else {
+		let timestamp = new Date(Date.now());
+		error(404, {
+			message: 'Not found',
+			code: 'NOT_FOUND',
+			timestamp: timestamp.toLocaleDateString('en-US') + ' ' + timestamp.toLocaleTimeString('en-US'),
+		});
 	}
-	return {
-		status: 404,
-		body: new Error('This page does not exist'),
-	};
 }

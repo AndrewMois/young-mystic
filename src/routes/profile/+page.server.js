@@ -6,7 +6,7 @@ import { JWT_SECRET } from '$env/static/private';
 
 export async function load({ locals }) {
 	if (!locals.authedUser) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 }
 
@@ -46,7 +46,7 @@ export const actions = {
 					// --- Success --- //
 					langChangeResponse.error = false;
 					langChangeResponse.lang = newLang;
-					cookies.set('lang', newLang, { maxAge: 60 * 60 * 24 * 7 });
+					/* @migration task: add path argument */ cookies.set('lang', newLang, { maxAge: 60 * 60 * 24 * 7 });
 				} catch (error) {
 					langChangeResponse.error = true;
 					return fail(500, langChangeResponse);

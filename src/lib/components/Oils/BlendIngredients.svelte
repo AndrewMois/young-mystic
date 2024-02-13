@@ -1,6 +1,7 @@
 <script>
 	export let title = undefined;
 	export let ingredients = [];
+	export let additionalIngredients = [];
 </script>
 
 {#if title && ingredients.length > 0}
@@ -18,6 +19,15 @@
 					{/if}
 				</a>
 			{/each}
+
+			{#if additionalIngredients.length > 0}
+				{#each additionalIngredients as ingredient}
+					<p class='py-2 px-3 italic background-primary border border-accent rounded-xl flex items-center'>
+						{ingredient}
+					</p>
+				{/each}
+			{/if}
+
 		</div>
 	</div>
 {/if}

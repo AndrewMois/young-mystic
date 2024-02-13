@@ -10,8 +10,12 @@
 	$: oilData = data.oil;
 </script>
 <svelte:head>
-	<title>{oilData.nameEn} | YM</title>
-	<meta name='description' content={`Узнайте всё об эфирном масле ${oilData.nameRu} в одном месте.`} />
+	{#if (oilData && oilData !== null && oilData !== undefined)}
+		<title>{oilData?.nameEn} | YM</title>
+		<meta property='og:title' content={`Эфирное масло ${oilData?.nameRu} | YM`} />
+		<meta property='og:description' content={`Узнайте всё об эфирном масле ${oilData?.nameRu} в одном месте.`} />
+		<meta property='og:image' content={oilData?.image} />
+	{/if}
 </svelte:head>
 
 {#if oilData && oilData !== null && oilData !== undefined}
@@ -81,7 +85,8 @@
 
 			<!-- Ingredients -->
 			{#if oilData.ingredients && oilData.ingredients.length > 0}
-				<BlendIngredients title={locales.constuents[lang]} ingredients={oilData.ingredients} />
+				<BlendIngredients title={locales.constuents[lang]} ingredients={oilData.ingredients}
+													additionalIngredients={oilData.additionalIngredients} />
 			{/if}
 
 		</div>
@@ -95,8 +100,6 @@
 	{/if}
 
 	<Accordion sections={oilData.textSections} />
-{:else }
-	<p>Oil not found</p>
 {/if}
 
 
