@@ -11,7 +11,7 @@ const client = createClient({
 
 export async function load({ url, locals }) {
 	if (!locals.authedUser) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 
 	const lang = locals.lang ? locals.lang : 'ru';

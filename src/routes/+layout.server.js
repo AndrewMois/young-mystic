@@ -2,7 +2,7 @@ import { redirect } from '@sveltejs/kit';
 
 export async function load({ locals, cookies, url }) {
 	if (!locals.authedUser && (url.pathname !== '/login' && url.pathname !== '/register')) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 
 	let lang = cookies.get('lang');

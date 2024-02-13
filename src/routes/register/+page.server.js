@@ -6,7 +6,7 @@ import locales from '$lib/locales/register/locales.json';
 
 export async function load({ locals }) {
 	if (locals.authedUser) {
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 }
 
@@ -115,7 +115,7 @@ export const actions = {
 
 		const userToInsert = await createUserToRegister(SignUpResponse);
 		const resultOfInsert = await registerUser(collection, userToInsert);
-		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) throw redirect(303, '/login');
+		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) redirect(303, '/login');
 		else {
 			SignUpResponse.password = '';
 			SignUpResponse.error = true;

@@ -12,7 +12,7 @@ const client = createClient({
 export async function load({ params, locals }) {
 
 	if (!locals.authedUser) {
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 
 	let slug = params.slug;
@@ -34,9 +34,9 @@ export async function load({ params, locals }) {
 			oil: data[0],
 		};
 	} else {
-		throw error(404, {
-			message: 'Not found',
-			code: 'NOT_FOUND',
-		});
+		error(404, {
+        			message: 'Not found',
+        			code: 'NOT_FOUND',
+        		});
 	}
 }

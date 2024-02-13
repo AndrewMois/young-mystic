@@ -8,7 +8,7 @@ export async function handle({ event, resolve }) {
 	const lang = event.cookies.get('lang');
 	if (!lang) {
 		event.locals.lang = 'ru'; // default language
-		event.cookies.set('lang', 'ru');
+		/* @migration task: add path argument */ event.cookies.set('lang', 'ru');
 	} else event.locals.lang = lang;
 
 	// Auth

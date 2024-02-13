@@ -13,7 +13,7 @@ import locales from '$lib/locales/login/locales.json';
 
 export async function load({ locals }) {
 	if (locals.authedUser) {
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 }
 
@@ -111,7 +111,7 @@ export const actions = {
 			} else {
 				LoginResponse.lang = 'ru'; // fallback language
 			}
-			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 });
+			/* @migration task: add path argument */ cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 });
 		} catch (error) {
 			LoginResponse.errorMessage = error.message;
 		}
@@ -119,11 +119,11 @@ export const actions = {
 		// Return a user mb or during auth with token?
 		LoginResponse.invalidCredentials = false;
 		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '30d' });
-		cookies.set('authToken', authToken, {
-			httpOnly: true,
-			maxAge: 60 * 60 * 24 * 30,
-			sameSite: 'strict',
-		});
-		throw redirect(302, '/');
+		/* @migration task: add path argument */ cookies.set('authToken', authToken, {
+        			httpOnly: true,
+        			maxAge: 60 * 60 * 24 * 30,
+        			sameSite: 'strict',
+        		});
+		redirect(302, '/');
 	},
 };
