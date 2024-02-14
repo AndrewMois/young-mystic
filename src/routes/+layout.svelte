@@ -23,7 +23,7 @@
 	YOUNG MYSTIC
 </TopNav>
 
-<TopBackground oils={locales.oils[lang]} blends={locales.blends[lang]} />
+<TopBackground oils={locales.oils[lang]} blends={locales.blends[lang]} back={locales.back[lang]} />
 <Wrapper mobilePadding={false}>
 	<main>
 		<slot />

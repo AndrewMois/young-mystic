@@ -18,6 +18,8 @@
 	{/if}
 </svelte:head>
 
+<!-- Navigation and Export to PDF buttons are located in the TopBackground.svelte component-->
+
 {#if oilData && oilData !== null && oilData !== undefined}
 	{#if oilData.image}
 		<div class='flex justify-center w-full'>

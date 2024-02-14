@@ -30,6 +30,7 @@
     "@sanity/client": "^6.8.6",
     "bcrypt": "^5.1.1",
     "google-auth-library": "^9.1.0",
+    "html2pdf.js": "^0.10.1",
     "jsonwebtoken": "^9.0.2",
     "lottie-web": "^5.12.2",
     "mongodb": "^6.2.0",
