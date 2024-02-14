@@ -7,6 +7,7 @@
 	 */
 	export let oils = 'Масла';
 	export let blends = 'Смеси';
+	export let back = 'Назад';
 
 	let isOilPage;
 	let isBlendPage;
@@ -26,7 +27,7 @@
 		{:else if isBlendPage}
 			{blends}
 		{:else}
-			Назад
+			{back}
 		{/if}
 	</a>
 {/if}
