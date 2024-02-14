@@ -27,20 +27,20 @@
 	{/if}
 
 	<!-- Oil name section -->
-	<div class='px-3 py-4 flex justify-between'>
+	<div class='pl-3 py-4 flex justify-between'>
 		<!--	Name -->
 		<div>
-			<h2 class='text-2xl font-semibold basis-3/4'>{oilData.nameEn}</h2>
+			<h2 class='text-2xl font-semibold'>{oilData.nameEn}</h2>
 			{#if oilData.nameRu}
 				<h3>{oilData.nameRu}</h3>
 			{/if}
 		</div>
 
 		<!--	Volume	-->
-		<div class='flex justify-center items-center gap-2 basis-1/4'>
+		<div class='flex justify-end items-center gap-2'>
 
 			{#each oilData.volume as volume}
-				<div class='text-sm background-faded rounded-xl p-2'>
+				<div class='whitespace-nowrap text-sm background-faded rounded-xl p-2'>
 					{`${volume} ${locales.ml[lang]}`}
 				</div>
 			{/each}
