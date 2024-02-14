@@ -1,7 +1,6 @@
 <script>
 	import Wrapper from '$components/Wrapper.svelte';
 	import BackButton from '$components/BackButton.svelte';
-	import PDFButton from '$components/PDFButton.svelte';
 
 	/*
 	This component is called from index.layout.svelte file
@@ -14,10 +13,10 @@
 <div class='background h-36 overflow-auto'>
 
 	<Wrapper mobilePadding={true} extraClasses='h-24 w-full'>
-		<div class='flex justify-between'>
-			<BackButton {oils} {blends} {back} />
-			<PDFButton {oils} {blends} {back} />
-		</div>
+		<!--		<div class='flex justify-between'>-->
+		<BackButton {oils} {blends} {back} />
+		<!--			<PDFButton />-->
+		<!--		</div>-->
 	</Wrapper>
 </div>
 

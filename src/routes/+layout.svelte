@@ -25,7 +25,7 @@
 
 <TopBackground oils={locales.oils[lang]} blends={locales.blends[lang]} back={locales.back[lang]} />
 <Wrapper mobilePadding={false}>
-	<main>
+	<main id='main'>
 		<slot />
 	</main>
 </Wrapper>
