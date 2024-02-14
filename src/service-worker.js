@@ -44,15 +44,14 @@ self.addEventListener('fetch', (event) => {
 	event.respondWith(
 		(async function() {
 			const cache = await caches.open(CACHE);
-			const cachedResponse = await cache.match(event.request);
-
-			const fetchPromise = fetch(event.request)
-				.then((networkResponse) => {
-					cache.put(event.request, networkResponse.clone());
-					return networkResponse;
-				})
-				.catch(() => cachedResponse);
-			return cachedResponse || fetchPromise;
+			try {
+				const networkResponse = await fetch(event.request);
+				await cache.put(event.request, networkResponse.clone());
+				return networkResponse;
+			} catch (error) {
+				const cachedResponse = await cache.match(event.request);
+				return cachedResponse || new Response('Service Unavailable', { status: 503 });
+			}
 		})(),
 	);
 });
