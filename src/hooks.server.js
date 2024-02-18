@@ -13,6 +13,7 @@ export async function handle({ event, resolve }) {
 
 	// Auth
 	const authToken = event.cookies.get('authToken');
+	let result;
 	try {
 		if (!authToken) event.locals.authedUser = undefined;
 
@@ -29,9 +30,9 @@ export async function handle({ event, resolve }) {
 				console.error(error);
 			}
 		}
-	} finally {
-		// eslint-disable-next-line no-unsafe-finally
-		return await resolve(event);
+		result = await resolve(event);
+	} catch (error) {
+		console.error(error);
 	}
-
+	return result;
 }
