@@ -55,6 +55,12 @@ To sum up, the lang value can be accessed in 3 ways:
 - from any server side file from `locals` object;
 - from any client side file from `cookie` object.
 
+## Page notes
+
+### Oil page
+
+Implemented functionality to download the oil data as a PDF file. This can be found in `PDFButton.svelte` component.
+This component is not displayed on the page, because I am not sure if it fits the idea of the app.
 
 
 

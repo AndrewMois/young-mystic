@@ -19,7 +19,7 @@ export const actions = {
 		let langChangeResponse = {
 			lang: newLang,
 			error: true,
-			langUnchanged: false
+			langUnchanged: false,
 		};
 
 		if (newLang === currentLang) {
@@ -46,9 +46,10 @@ export const actions = {
 					// --- Success --- //
 					langChangeResponse.error = false;
 					langChangeResponse.lang = newLang;
-					/* @migration task: add path argument */ cookies.set('lang', newLang, { maxAge: 60 * 60 * 24 * 7 });
+					cookies.set('lang', newLang, { maxAge: 60 * 60 * 24 * 7, path: '/' });
 				} catch (error) {
 					langChangeResponse.error = true;
+					console.error(error);
 					return fail(500, langChangeResponse);
 				}
 			}
@@ -56,5 +57,5 @@ export const actions = {
 			console.error(error);
 			return fail(500, langChangeResponse);
 		}
-	}
+	},
 };

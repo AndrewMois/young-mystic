@@ -111,7 +111,7 @@ export const actions = {
 			} else {
 				LoginResponse.lang = 'ru'; // fallback language
 			}
-			/* @migration task: add path argument */ cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 });
+			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 }, { path: '/' });
 		} catch (error) {
 			LoginResponse.errorMessage = error.message;
 		}
@@ -119,11 +119,11 @@ export const actions = {
 		// Return a user mb or during auth with token?
 		LoginResponse.invalidCredentials = false;
 		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '30d' });
-		/* @migration task: add path argument */ cookies.set('authToken', authToken, {
-        			httpOnly: true,
-        			maxAge: 60 * 60 * 24 * 30,
-        			sameSite: 'strict',
-        		});
+		cookies.set('authToken', authToken, {
+			httpOnly: true,
+			maxAge: 60 * 60 * 24 * 30,
+			sameSite: 'strict',
+		}, { path: '/' });
 		redirect(302, '/');
 	},
 };
