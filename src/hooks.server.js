@@ -17,11 +17,12 @@ export async function handle({ event, resolve }) {
 	try {
 		if (!authToken) event.locals.authedUser = undefined;
 
-		const claims = jwt.verify(authToken, JWT_SECRET);
-		if (!claims) event.locals.authedUser = undefined;
 
-		if (authToken && claims) {
+		if (authToken) {
 			try {
+				const claims = jwt.verify(authToken, JWT_SECRET);
+				if (!claims) event.locals.authedUser = undefined;
+
 				const collection = await dbConn();
 				event.locals.authedUser = await findUserByEmail(collection, claims.email);
 
