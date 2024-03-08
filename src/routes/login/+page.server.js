@@ -1,5 +1,7 @@
-import { dbConn } from '../../dbConn';
+import { JWT_SECRET } from '$env/static/private';
+import locales from '$lib/locales/login/locales.json';
 import { fail, redirect } from '@sveltejs/kit';
+import jwt from 'jsonwebtoken';
 import {
 	checkBlockedbyEmail,
 	checkPassword,
@@ -7,15 +9,7 @@ import {
 	findUserByEmailWithPassword,
 	getLangByEMail,
 } from '../../backendUtils.js';
-import { JWT_SECRET } from '$env/static/private';
-import jwt from 'jsonwebtoken';
-import locales from '$lib/locales/login/locales.json';
-
-export async function load({ locals }) {
-	if (locals.authedUser) {
-		redirect(302, '/');
-	}
-}
+import { dbConn } from '../../dbConn';
 
 export const actions = {
 	login: async ({ cookies, request }) => {
@@ -111,19 +105,23 @@ export const actions = {
 			} else {
 				LoginResponse.lang = 'ru'; // fallback language
 			}
-			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30 }, { path: '/' });
+			cookies.set('lang', langFromDB, { maxAge: 60 * 60 * 24 * 30, path: '/' });
 		} catch (error) {
 			LoginResponse.errorMessage = error.message;
 		}
 
-		// Return a user mb or during auth with token?
 		LoginResponse.invalidCredentials = false;
 		const authToken = jwt.sign({ email: email }, JWT_SECRET, { expiresIn: '30d' });
-		cookies.set('authToken', authToken, {
-			httpOnly: true,
-			maxAge: 60 * 60 * 24 * 30,
-			sameSite: 'strict',
-		}, { path: '/' });
+		cookies.set(
+			'authToken',
+			authToken,
+			{
+				httpOnly: true,
+				maxAge: 60 * 60 * 24 * 30,
+				sameSite: 'strict',
+				path: '/',
+			},
+		);
 		redirect(302, '/');
 	},
 };
