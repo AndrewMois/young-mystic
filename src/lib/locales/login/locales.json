@@ -73,5 +73,15 @@
     "en": "Oops, something went wrong! Try again shortly",
     "ru": "Упс, что-то пошло не так! Попробуйте еще раз",
     "ua": "Упс, щось пішло не так! Спробуйте ще раз"
+  },
+  "problemWithLogin": {
+    "en": "Problem with login?",
+    "ru": "Проблема с входом?",
+    "ua": "Проблема з входом?"
+  },
+  "contactUs": {
+    "en": "Contact us",
+    "ru": "Свяжитесь с нами",
+    "ua": "Зв'яжіться з нами"
   }
 }

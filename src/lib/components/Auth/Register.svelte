@@ -196,7 +196,7 @@
 			</p>
 			<a
 				class='border-b border-accent decoration-2  font-medium text-sm hover:border-b-2'
-				href='/contact'>
+				href='/support'>
 				{locales.contactUs[lang]}
 			</a>
 		</div>
