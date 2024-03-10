@@ -118,14 +118,19 @@ export const actions = {
 		const resultOfInsert = await registerUser(collection, userToInsert);
 		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) {
 			// --- Telegram Notification --- //
-			const message = `A new user ${firstName} + ${lastName} has registered.\n
+			try {
+				const message = `A new user ${firstName} + ${lastName} has registered.\n
 			First Name: ${firstName}\n
 			Last Name: ${lastName}\n
 			Email: ${email}\n
 			YLID: ${ylid}\n
 			Check his ID and approve him.
 			`;
-			await sendTelegramMessage(message);
+				await sendTelegramMessage(message);
+			} catch (error) {
+				console.error('Error sending message to Telegram:', error);
+			}
+
 
 			redirect(303, '/login');
 		} else {
