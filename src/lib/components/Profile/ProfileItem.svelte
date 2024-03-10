@@ -7,9 +7,9 @@
 <a href={href}
 	 class='flex items-center justify-between py-2 px-4 w-full rounded-xl border border-accent bg-white md:flex-row'>
 	<!--	<div class='flex items-center background-faded h-full rounded-l-xl'>-->
-	<h5 class='text-xl tracking-tight'>
+	<p class='tracking-tight xs:text-lg'>
 		{title}
-	</h5>
+	</p>
 
 	<img src={icon} alt={title + ' icon'}
 			 class='h-8'>

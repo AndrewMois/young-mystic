@@ -3,7 +3,8 @@
 	import SearchBar from '$components/SearchBar.svelte';
 	import Card from '$components/Card.svelte';
 	import locales from '$lib/locales/menu/locales.json';
-	import Profile from '$lib/icons/Profile.svg';
+	import ProfileIcon from '$lib/icons/Profile.svg';
+	import SupportIcon from '$lib/icons/Support.svg';
 	import MenuItem from '$components/MenuItem.svelte';
 	import MenuPanel from '$components/MenuPanel.svelte';
 
@@ -33,7 +34,9 @@
 							image={item.image ? item.image : undefined} />
 			{/each}
 
-			<MenuItem href={'/profile'} title={locales.profile[lang]} icon={Profile} />
+			<MenuItem href={'/profile'} title={locales.profile[lang]} icon={ProfileIcon} />
+
+			<MenuItem href={'/support'} title={locales.support[lang]} icon={SupportIcon} />
 
 		</div>
 	</MenuPanel>

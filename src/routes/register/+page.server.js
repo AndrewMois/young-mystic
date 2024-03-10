@@ -3,6 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { createUserToRegister, registerUser, returnEmailsList, returnYLIDsList } from '../../backendUtils.js';
 import { checkPassword } from '../../passwordCheck.js';
 import locales from '$lib/locales/register/locales.json';
+import { sendTelegramMessage } from '../../telegramBot.js';
 
 export async function load({ locals }) {
 	if (locals.authedUser) {
@@ -34,7 +35,7 @@ export const actions = {
 			email,
 			ylid,
 			password: '',
-			passwordRepeat: ''
+			passwordRepeat: '',
 		};
 
 		// --- General Checks --- //
@@ -115,12 +116,28 @@ export const actions = {
 
 		const userToInsert = await createUserToRegister(SignUpResponse);
 		const resultOfInsert = await registerUser(collection, userToInsert);
-		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) redirect(303, '/login');
-		else {
+		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) {
+			// --- Telegram Notification --- //
+			try {
+				const message = `A new user ${firstName} + ${lastName} has registered.\n
+			First Name: ${firstName}\n
+			Last Name: ${lastName}\n
+			Email: ${email}\n
+			YLID: ${ylid}\n
+			Check his ID and approve him.
+			`;
+				await sendTelegramMessage(message);
+			} catch (error) {
+				console.error('Error sending message to Telegram:', error);
+			}
+
+
+			redirect(303, '/login');
+		} else {
 			SignUpResponse.password = '';
 			SignUpResponse.error = true;
 			SignUpResponse.errorMessages.push(locales.errorRegister[lang]);
 			return fail(503, SignUpResponse);
 		}
-	}
+	},
 };

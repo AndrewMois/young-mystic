@@ -27,7 +27,9 @@
 
 		<!-- Form -->
 		<form method='post' action='?/signup'>
+			<Alert type='info' title={locales.note[lang]} message={locales.registrationMessage[lang]} />
 			<div class='grid gap-y-4'>
+
 				<!-- Form Group -->
 				<div>
 					<label for='firstName' class='block text-sm mb-2'>
@@ -196,7 +198,7 @@
 			</p>
 			<a
 				class='border-b border-accent decoration-2  font-medium text-sm hover:border-b-2'
-				href='/contact'>
+				href='/support'>
 				{locales.contactUs[lang]}
 			</a>
 		</div>

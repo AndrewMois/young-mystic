@@ -74,6 +74,17 @@
 					{locales.signInButton[lang]}
 				</button>
 			</div>
+
+			<div class='mt-4 text-center'>
+				<p class='text-sm text-gray-600 '>
+					{locales.problemWithLogin[lang]}
+				</p>
+				<a
+					class='border-b border-accent decoration-2  font-medium text-sm hover:border-b-2'
+					href='/support'>
+					{locales.contactUs[lang]}
+				</a>
+			</div>
 		</form>
 		<!-- End Form -->
 	</div>
