@@ -14,6 +14,16 @@
     "ru": "Войти",
     "ua": "Увійти"
   },
+  "note": {
+    "en": "Note",
+    "ru": "Примечание",
+    "ua": "Примітка"
+  },
+  "registrationMessage": {
+    "en": "After registration, please allow 24 hours for your account to be activated. You will receive an email once your account is activated.",
+    "ru": "Проверка ваших данных после регистации может занять до 24 часов. Вы получите электронное письмо, как только ваш аккаунт будет активирован.",
+    "ua": "Перевірка ваших даних після реєстрації може зайняти до 24 годин. Ви отримаєте електронний лист, як тільки ваш аккаунт буде активований."
+  },
   "firstName": {
     "en": "First name",
     "ru": "Имя",
