@@ -1,0 +1,52 @@
+{
+  "contacts": {
+    "en": "Contacts",
+    "ru": "Контакты",
+    "ua": "Контакти"
+  },
+  "appSupport": {
+    "en": "App support",
+    "ru": "Поддержка приложения",
+    "ua": "Підтримка додатку"
+  },
+  "telegramContact": {
+    "en": "Text in Telegram",
+    "ru": "Написать в Telegram",
+    "ua": "Написати в Telegram"
+  },
+  "supportText": {
+    "ru": "По вопросам регистрации, подтверждения и блокировок, а так же с предложениями и критикой, используйте любой удобный канал связи:",
+    "en": "For registration, pending and blocking requests, as well as suggestions and criticism, use any convenient communication channel:",
+    "ua": "З питань реєстрації, підтвердження та блокувань, а також з пропозиціями та критикою, використовуйте будь-який зручний канал зв'язку:"
+  },
+  "email": {
+    "en": "Email",
+    "ru": "Электронная почта",
+    "ua": "Електронна пошта"
+  },
+  "mailtoSubject": {
+    "en": "Support request",
+    "ru": "Запрос в поддержку",
+    "ua": "Запит в підтримку"
+  },
+  "socialNetworks": {
+    "en": "Social networks",
+    "ru": "Социальные сети",
+    "ua": "Соціальні мережі"
+  },
+  "facebook": {
+    "en": "Facebook",
+    "ru": "Facebook",
+    "ua": "Facebook"
+  },
+  "instagram": {
+    "en": "Instagram",
+    "ru": "Instagram",
+    "ua": "Instagram"
+  },
+  "youtube": {
+    "en": "YouTube",
+    "ru": "YouTube",
+    "ua": "YouTube"
+  }
+}

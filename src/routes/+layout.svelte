@@ -16,6 +16,7 @@
 	onMount(() => {
 		fetch('/api/oils')
 			.then(response => response.json());
+		console.log('fetching oils');//TODO: remove
 	});
 </script>
 

@@ -10,6 +10,9 @@ const ASSETS = [
 	...files, // everything in `static`
 ];
 
+/**
+ * INSTALL
+ */
 self.addEventListener('install', (event) => {
 	// Create a new cache and add all files to it
 	async function addFilesToCache() {
@@ -22,6 +25,9 @@ self.addEventListener('install', (event) => {
 	event.waitUntil(addFilesToCache());
 });
 
+/**
+ * ACTIVATE
+ */
 self.addEventListener('activate', (event) => {
 	// Remove previous cached data from disk
 	async function deleteOldCaches() {
@@ -34,6 +40,9 @@ self.addEventListener('activate', (event) => {
 	console.log('🌟 SW ready'); //TODO: remove
 });
 
+/**
+ * FETCH
+ */
 self.addEventListener('fetch', (event) => {
 	// ignore POST requests etc
 	if (event.request.method !== 'GET') return;
@@ -44,6 +53,7 @@ self.addEventListener('fetch', (event) => {
 	event.respondWith(
 		(async function() {
 			const cache = await caches.open(CACHE);
+
 			try {
 				const networkResponse = await fetch(event.request);
 				await cache.put(event.request, networkResponse.clone());
@@ -56,6 +66,9 @@ self.addEventListener('fetch', (event) => {
 	);
 });
 
+/**
+ * OTHER
+ */
 self.addEventListener('message', (event) => {
 	if (event.data && event.data.type === 'CLEAR_CACHES') {
 		caches.keys().then((names) => {
