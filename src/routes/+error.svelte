@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import locales from '$lib/locales/error/locales.json';
 	import Footer from '$components/Footer.svelte';
+	import ErrorIcon from '$lib/icons/404.json';
 
 	export let data;
 	const lang = data.lang;
@@ -15,7 +16,7 @@
 				renderer: 'svg',
 				loop: true,
 				autoplay: true,
-				path: '/src/lib/icons/404.json', // the path to the animation json
+				animationData: ErrorIcon, // the path to the animation json
 			});
 		} catch (e) {
 			console.log(e);
