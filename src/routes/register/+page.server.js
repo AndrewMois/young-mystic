@@ -22,6 +22,16 @@ export const actions = {
 		const passwordRepeat = signupFormData.get('passwordRepeat') ?? '';
 		let lang = signupFormData.get('lang') ?? 'ru'; // default language
 
+		//TODO remove this after testing
+		const message = `A new user ${firstName} ${lastName} has registered.\n
+			First Name: ${firstName}
+			Last Name: ${lastName}
+			Email: ${email}
+			YLID: ${ylid}\n
+			Check his ID and approve him.
+			`;
+		await sendTelegramMessage(message);
+
 		let SignUpResponse = {
 			emailUsed: false,
 			weakPassword: false,
