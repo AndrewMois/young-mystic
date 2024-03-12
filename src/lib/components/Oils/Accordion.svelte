@@ -3,6 +3,7 @@
 	 * Component that accepts an array of blocks from Sanity and renders them as HTML. Pass textSections as the prop.
 	 */
 	export let sections = [];
+	console.log(sections);//TODO: remove this line
 </script>
 
 {#each sections as section (section._key)}
@@ -33,7 +34,15 @@
 					{#if block.style === 'h3'}
 						<h3 class='font-bold'>{block.children[0].text}</h3>
 					{:else if block.style === 'normal' && block.listItem !== 'bullet'}
-						<p class='leading-relaxed'>{block.children[0].text}</p>
+						<p class='leading-relaxed'>
+							{#each block.children as child (child._key)}
+								{#if child.marks && child.marks.includes('strong')}
+									<strong>{child.text}</strong>
+								{:else}
+									{child.text}
+								{/if}
+							{/each}
+						</p>
 					{:else if block.style === 'blockquote'}
 						<blockquote class='border-l-2 border-accent pl-3 mt-2 italic'>
 							{block.children[0].text}
