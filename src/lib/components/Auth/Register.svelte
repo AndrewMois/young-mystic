@@ -7,7 +7,7 @@
 	let isPasswordFocused = false;
 </script>
 
-<div class='text-black mt-7 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
+<div class='text-black mt-7 mb-8 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
 	<div class='p-4 sm:p-7'>
 		<div class='text-center mb-4'>
 			<h1 class='block text-2xl font-bold'>{locales.register[lang]}</h1>
