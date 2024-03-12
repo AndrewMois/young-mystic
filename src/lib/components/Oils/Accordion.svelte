@@ -8,7 +8,7 @@
 </script>
 
 {#each sections as section (section._key)}
-	<div class='w-full mb-3 border-b border-faded'>
+	<section class='w-full mb-3 border-b border-faded'>
 		<button
 			class='w-full flex items-center gap-3 py-3 text-xl'
 			on:click={() => (section.open = !section.open)}
@@ -63,5 +63,5 @@
 				{/each}
 			</div>
 		{/if}
-	</div>
+	</section>
 {/each}
