@@ -7,6 +7,7 @@
 	 */
 	export let oils = 'Масла';
 	export let blends = 'Смеси';
+	export let home = 'Главная';
 	export let back = 'Назад';
 </script>
 
@@ -14,7 +15,7 @@
 
 	<Wrapper mobilePadding={true} extraClasses='h-24 w-full'>
 		<!--		<div class='flex justify-between'>-->
-		<BackButton {oils} {blends} {back} />
+		<BackButton {oils} {blends} {home} {back} />
 		<!--			<PDFButton />-->
 		<!--		</div>-->
 	</Wrapper>
