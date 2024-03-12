@@ -2,11 +2,13 @@
 	/**
 	 * Component that accepts an array of blocks from Sanity and renders them as HTML. Pass textSections as the prop.
 	 */
+	import { slide } from 'svelte/transition';
+
 	export let sections = [];
 </script>
 
 {#each sections as section (section._key)}
-	<div class='w-full mb-3 border-b border-faded'>
+	<section class='w-full mb-3 border-b border-faded'>
 		<button
 			class='w-full flex items-center gap-3 py-3 text-xl'
 			on:click={() => (section.open = !section.open)}
@@ -28,12 +30,20 @@
 			<h5 class='text-left'>{section.name}</h5>
 		</button>
 		{#if section.open}
-			<div class='flex flex-col gap-2 mb-2 ml-3'>
+			<div class='flex flex-col gap-2 mb-2 ml-3' transition:slide>
 				{#each section.content as block (block._key)}
 					{#if block.style === 'h3'}
 						<h3 class='font-bold'>{block.children[0].text}</h3>
 					{:else if block.style === 'normal' && block.listItem !== 'bullet'}
-						<p class='leading-relaxed'>{block.children[0].text}</p>
+						<p class='leading-relaxed'>
+							{#each block.children as child (child._key)}
+								{#if child.marks && child.marks.includes('strong')}
+									<strong>{child.text}</strong>
+								{:else}
+									{child.text}
+								{/if}
+							{/each}
+						</p>
 					{:else if block.style === 'blockquote'}
 						<blockquote class='border-l-2 border-accent pl-3 mt-2 italic'>
 							{block.children[0].text}
@@ -53,5 +63,5 @@
 				{/each}
 			</div>
 		{/if}
-	</div>
+	</section>
 {/each}

@@ -11,7 +11,7 @@
 </script>
 
 <Wrapper mobilePadding={true} extraClasses='-mt-20'>
-	<div class='text-black mt-7 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
+	<div class='text-black mt-7 mb-8 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
 		<div class='grid gap-y-4 p-4 sm:p-7'>
 			<h1 class='text-2xl'>
 				{locales.profileSettings[lang]}

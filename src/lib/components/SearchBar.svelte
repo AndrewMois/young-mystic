@@ -35,6 +35,7 @@
 
 	function handleKeydown(event) {
 		if (suggestions.length === 0) return;
+		if (suggestions.length === 1 && suggestions[0].slug.current === 'none') return;
 
 		if (event.key === 'ArrowDown') {
 			event.preventDefault();
@@ -44,7 +45,9 @@
 			if (selectedIndex > -1) selectedIndex--;
 		} else if (event.key === 'Enter') {
 			event.preventDefault();
-			if (selectedIndex > -1 && selectedIndex < suggestions.length) {
+			if (selectedIndex === -1 && suggestions.length > 0) {
+				window.location.href = `/oils/${suggestions[0].slug.current}`;
+			} else if (selectedIndex > -1 && selectedIndex < suggestions.length) {
 				window.location.href = `/oils/${suggestions[selectedIndex].slug.current}`;
 			}
 		}
