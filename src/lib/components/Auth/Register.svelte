@@ -27,7 +27,7 @@
 
 		<!-- Form -->
 		<form method='post' action='?/signup'>
-			<Alert type='info' title={locales.note[lang]} message={locales.registrationMessage[lang]} />
+			<!--			<Alert type='info' title={locales.note[lang]} message={locales.registrationMessage[lang]} /> TODO: uncomment when pending is returned -->
 			<div class='grid gap-y-4'>
 
 				<!-- Form Group -->
