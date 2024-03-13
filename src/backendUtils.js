@@ -102,7 +102,7 @@ export const createUserToRegister = async (form) => {
 		ylid: form.ylid.toString(),
 		lang: form.lang.toString(),
 		blocked: false,
-		pending: true,
+		pending: false, //TODO: Change to true when email verification is implemented
 		registerDate: new Date(),
 	};
 	return user;

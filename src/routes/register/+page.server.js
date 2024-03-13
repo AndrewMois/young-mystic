@@ -119,10 +119,10 @@ export const actions = {
 		if (resultOfInsert.acknowledged && resultOfInsert.insertedId) {
 			// --- Telegram Notification --- //
 			try {
-				const message = `A new user ${firstName} + ${lastName} has registered.\n
-			First Name: ${firstName}\n
-			Last Name: ${lastName}\n
-			Email: ${email}\n
+				const message = `A new user ${firstName} ${lastName} has registered.\n
+			First Name: ${firstName}
+			Last Name: ${lastName}
+			Email: ${email}
 			YLID: ${ylid}\n
 			Check his ID and approve him.
 			`;
