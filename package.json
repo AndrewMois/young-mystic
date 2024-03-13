@@ -28,6 +28,7 @@
   "type": "module",
   "dependencies": {
     "@sanity/client": "^6.8.6",
+    "@vercel/analytics": "^1.2.2",
     "bcrypt": "^5.1.1",
     "google-auth-library": "^9.1.0",
     "html2pdf.js": "^0.10.1",
