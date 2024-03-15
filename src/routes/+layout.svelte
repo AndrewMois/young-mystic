@@ -5,10 +5,9 @@
 	import { onMount } from 'svelte';
 	import TopBackground from '$components/TopBackground.svelte';
 	import locales from '$lib/locales/common/locales.json';
-	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 
-	inject({ mode: dev ? 'development' : 'production' });
+	inject({ mode: 'production' });
 	export let data;
 	const lang = data.lang;
 	export const load = async ({ parent }) => {
