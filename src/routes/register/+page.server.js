@@ -20,7 +20,7 @@ export const actions = {
 		const email = signupFormData.get('email').toLowerCase().trim() ?? '';
 		const password = signupFormData.get('password') ?? '';
 		const passwordRepeat = signupFormData.get('passwordRepeat') ?? '';
-		let lang = signupFormData.get('lang') ?? 'ru'; // default language
+		let lang = signupFormData.get('lang') ?? 'en'; // default language
 
 		let SignUpResponse = {
 			emailUsed: false,

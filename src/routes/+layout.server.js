@@ -8,8 +8,8 @@ export async function load({ locals, cookies, url }) {
 	let lang = cookies.get('lang');
 
 	if (!lang) {
-		lang = 'ru'; // default language
-		cookies.set('lang', 'ru');
+		lang = 'en'; // default language
+		cookies.set('lang', 'en', { path: '/' });
 	}
 
 	let authedUser = undefined;

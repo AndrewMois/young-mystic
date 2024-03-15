@@ -94,9 +94,9 @@
 							name='lang'
 							id='lang'
 							class='py-3 px-4 pe-9 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'>
-							<option value='ru' selected>Русский</option>
+							<option value='ru'>Русский</option>
 							<option value='ua'>Українська</option>
-							<option value='en'>English</option>
+							<option value='en' selected>English</option>
 						</select>
 					</div>
 				</div>

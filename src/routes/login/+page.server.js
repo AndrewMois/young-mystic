@@ -16,7 +16,7 @@ export const actions = {
 		const loginFormData = await request.formData();
 		const email = loginFormData.get('email').toLowerCase().trim() ?? '';
 		const password = loginFormData.get('password') ?? '';
-		const lang = loginFormData.get('lang') ?? 'ru'; // default language
+		const lang = loginFormData.get('lang') ?? 'en'; // default language
 
 		let LoginResponse = {
 			invalidCredentials: false,

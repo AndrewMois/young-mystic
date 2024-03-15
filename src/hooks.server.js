@@ -7,8 +7,8 @@ export async function handle({ event, resolve }) {
 	// Language
 	const lang = event.cookies.get('lang');
 	if (!lang) {
-		event.locals.lang = 'ru'; // default language
-		event.cookies.set('lang', 'ru', { path: '/' });
+		event.locals.lang = 'en'; // default language
+		event.cookies.set('lang', 'en', { path: '/' });
 	} else event.locals.lang = lang;
 
 	// Auth
