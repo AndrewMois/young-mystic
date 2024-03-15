@@ -87,7 +87,7 @@
 
 			<!-- Ingredients -->
 			{#if oilData.ingredients && oilData.ingredients.length > 0}
-				<BlendIngredients title={locales.constuents[lang]} ingredients={oilData.ingredients}
+				<BlendIngredients title={locales.constituents[lang]} ingredients={oilData.ingredients}
 													additionalIngredients={oilData.additionalIngredients} />
 			{/if}
 
