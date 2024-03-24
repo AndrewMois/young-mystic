@@ -5,6 +5,8 @@
 	export let form;
 	export let locales;
 	export let lang;
+	const demoEmail = 'demo@mail.com';
+	const demoPassword = 'Password1';
 </script>
 
 <div class='text-black mt-7 mb-8 bg-white border border-accent rounded-xl shadow-sm max-w-md mx-auto'>
@@ -46,7 +48,7 @@
 						<input type='email' id='email' name='email'
 									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required aria-describedby='email-error'
-									 value={form?.email?? ''}>
+									 value={demoEmail}>
 					</div>
 				</div>
 				<!-- End Form Group -->
@@ -60,7 +62,7 @@
 							href='../examples/html/recover-account.html'>{locales.forgotPassword[lang]}</a>
 					</div>
 					<div class='relative'>
-						<input type='password' id='password' name='password'
+						<input type='password' id='password' name='password' value={demoPassword}
 									 class='py-3 px-4 block w-full border-accent rounded-lg border focus:border-accent disabled:opacity-50 disabled:pointer-events-none'
 									 required aria-describedby='password-error'>
 					</div>
