@@ -4,6 +4,7 @@
 	import LanguageChange from '$components/Profile/LanguageChange.svelte';
 	import LogoutIcon from '$lib/icons/Logout.svg';
 	import ProfileItem from '$components/Profile/ProfileItem.svelte';
+	import DemoPopUp from '$components/DemoPopUp.svelte';
 
 	export let data;
 	export let form;
@@ -43,3 +44,5 @@
 		</div>
 	</div>
 </Wrapper>
+
+<DemoPopUp />
