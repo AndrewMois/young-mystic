@@ -1,4 +1,12 @@
 <script>
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} title - The title of the popup
+	 * @property {string} description - The description of the popup
+	 * @property {string} button - The button text
+	 *
+	 * @type {Props}
+	 */
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
@@ -38,8 +46,9 @@
 			<div
 				class='inline-block align-bottom border border-accent rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
 				<div class='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-					<h2 class='text-lg leading-6 font-medium text-gray-900'>{title}</h2>
-					<p class='mt-2 text-sm text-gray-500'>{description}</p>
+					<h2 class='text-lg leading-6 font-bold text-center'>{title}</h2>
+					<div class='mt-2 text-sm flex flex-col gap-2'>{@html description}
+					</div>
 				</div>
 				<div class='bg-white px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse'>
 					<button type='button'
