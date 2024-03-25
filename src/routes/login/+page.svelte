@@ -23,6 +23,7 @@
 <DemoPopUp title='Welcome to Demo Version!'
 					 description="<p>Thank you a lot for your interest in my work.</p>
 					 <p>Such pop-ups will guide you through the demo of this application.</p>
+					 <p>Production version of this app is used everyday by <span class='border-b-2 border-accent'>over 200 members</span> of our community.</p>
 						<p>The demo version has all the functionality of the full version, but just has less entities in the
 							database. This is because production version rely only on the Russian locale data, with more
 							languages to come.</p>
