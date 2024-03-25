@@ -22,6 +22,7 @@
 
 <DemoPopUp title='Welcome to Demo Version!'
 					 description="<p>Thank you a lot for your interest in my work.</p>
+					 <p>Such pop-ups will guide you through the demo of this application.</p>
 						<p>The demo version has all the functionality of the full version, but just has less entities in the
 							database. This is because production version rely only on the Russian locale data, with more
 							languages to come.</p>
@@ -33,5 +34,4 @@ and SvelteKit hooks.</p>
 	free to register.</p>
 <p>To save your time, you can <span
 	class='border-b-2 border-accent'>use prefilled credentials.</span></p>"
-					 button='Close' />
-
+					 button='Got it!' />
