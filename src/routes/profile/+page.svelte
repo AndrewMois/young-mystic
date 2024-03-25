@@ -4,6 +4,7 @@
 	import LanguageChange from '$components/Profile/LanguageChange.svelte';
 	import LogoutIcon from '$lib/icons/Logout.svg';
 	import ProfileItem from '$components/Profile/ProfileItem.svelte';
+	import DemoPopUp from '$components/DemoPopUp.svelte';
 
 	export let data;
 	export let form;
@@ -44,3 +45,12 @@
 	</div>
 </Wrapper>
 
+<DemoPopUp title='Profile page'
+					 description="
+      <p>The user will be able to change the email, password and background image.</p>
+      <p class='font-bold'>Languages</p>
+      <p>Languages have been a major focus of the application as our community is multinational and growing. The user's chosen language is stored in the database and locally as a cookie.</p>
+      <p><span class='border-b-2 border-accent'>Sanity</span> CMS allows for efficient content management in multiple languages.</p>
+      <p>Feel free to change the language to Russian to see full database of essential oils.</p>
+"
+					 button='Got it!' />

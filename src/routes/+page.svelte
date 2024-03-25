@@ -47,17 +47,27 @@
 					 description="
 					 <p>As a community leader and essential oils enthusiast, I wanted to create a <span class='border-b-2 border-accent'>handy essential oils library</span> with a focus on <span class='border-b-2 border-accent'>simplicity and ease of use</span> for members of all ages.</p>
       <p>We were relying on a lot of thick books and encyclopaedias that were difficult to keep handy.</p>
-      <p class='font-bold'>What has been done:</h3>
+      <p class='font-bold'>Technologies used:</p>
+      <ul class='list-disc ml-4'>
+				<li><span class='border-b-2 border-accent'>SvelteKit</span> as a front-end framework.</li>
+				<li><span class='border-b-2 border-accent'>Sanity</span> as a headless CMS for content management in multiple languages.</li>
+				<li><span class='border-b-2 border-accent'>Vercel</span> for deployment.</li>
+				<li><span class='border-b-2 border-accent'>MongoDB</span> for the database.</li>
+				<li><span class='border-b-2 border-accent'>Figma</span> for designing.</li>
+				<li><span class='border-b-2 border-accent'>TailwindCSS</span> for the styling.</li>
+				</ul>
+      <p class='font-bold'>What has been done:</p>
       <ul class='list-disc ml-4'>
         <li>Designed and created from scratch</li>
-        <li>App is available for installation on all platforms as a <span class='border-b-2 border-accent'>PWA.</span></li>
+        <li>App is available for installation on all platforms as a <span class='border-b-2 border-accent'>PWA</span> and <span class='border-b-2 border-accent'>works offline.</span></li>
         <li>A library of over 200 oils in Russian (Ukrainian and English are being translated).</li>
         <li>App is available in <span class='border-b-2 border-accent'>three languages</span> and more can be easily added in the future.</li>
       </ul>
       <p class='font-bold'>Features under development:</h3>
       <ul class='list-disc ml-4'>
-        <li>Community news section</li>
-        <li>Online courses section with the possibility to buy a course</li>
-        <li>Paid subscriptions for non-community members</li>
-      </ul>"
+        <li>Community news section.</li>
+        <li>Online courses section with the possibility to buy a course.</li>
+        <li>Paid subscriptions for non-community members.</li>
+      </ul>
+			<p><strong>Note:</strong> This is an MVP version that was released in March 2024. More to come!</p>"
 					 button='Got it!' />
