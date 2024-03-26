@@ -23,11 +23,11 @@
 					oil => oil.nameEn?.toLowerCase().includes(search.toLowerCase().trim()) ||
 						oil.nameRu?.toLowerCase().includes(search.toLowerCase().trim()));
 				if (!suggestions.length) {
-					suggestions = [{ nameEn: 'Ничего не найдено', slug: { current: 'none' } }];
+					suggestions = [{ nameEn: locales.nothingFound[lang], slug: { current: 'none' } }];
 				}
 			} catch (e) {
 				console.error('Search error: ', e);
-				suggestions = [{ nameEn: 'Упс, произошла ошибка', slug: { current: 'none' } }];
+				suggestions = [{ nameEn: locales.searchError[lang], slug: { current: 'none' } }];
 			}
 
 		}
