@@ -4,6 +4,16 @@
     "ru": "Поиск",
     "ua": "Пошук"
   },
+  "nothingFound": {
+    "en": "Nothing found",
+    "ru": "Ничего не найдено",
+    "ua": "Нічого не знайдено"
+  },
+  "searchError": {
+    "en": "Oups, something went wrong",
+    "ru": "Упс, произошла ошибка",
+    "ua": "Упс, сталася помилка"
+  },
   "profile": {
     "en": "Profile",
     "ru": "Профиль",
